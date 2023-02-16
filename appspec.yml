@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    descination: /home/ubuntu/client
+    destination: /home/ubuntu/client
     overwrite: yes
 
 permissions:
