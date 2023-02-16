@@ -27,7 +27,7 @@ jobs:
           CI: false
 
       - name: zip 생성
-        run: zip -qq -r ./$GITHUB_SHA.zip .
+        run: zip -qq -r ./$GITHUB_SHA-front.zip .
         shell: bash
 
       - name: aws 설정
@@ -42,7 +42,7 @@ jobs:
           aws deploy push \
           --application-name ddookddack \
           --ignore-hidden-files \
-          --s3-location s3://ddookddack-front/$GITHUB_SHA.zip \
+          --s3-location s3://ddookddack-front/$GITHUB_SHA-front.zip \
           --source .
 
       - name: Deploy
@@ -54,5 +54,5 @@ jobs:
           --application-name ddookddack \
           --deployment-group-name ddookddackApp \
           --file-exists-behavior OVERWRITE \
-          --s3-location bucket=ddookddack-front,bundleType=zip,key=$GITHUB_SHA.zip \
+          --s3-location bucket=ddookddack-front,bundleType=zip,key=$GITHUB_SHA-front.zip \
           --region ap-northeast-2
