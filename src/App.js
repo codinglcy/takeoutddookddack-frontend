@@ -7,7 +7,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("/api/hello")
+      .get(
+        "http://http://ec2-15-165-21-12.ap-northeast-2.compute.amazonaws.com:8080/api/hello"
+      )
       .then((res) => setHello(res.data))
       .catch((err) => console.log(err));
   }, []);
