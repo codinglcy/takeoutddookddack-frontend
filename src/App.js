@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        "http://http://ec2-15-165-21-12.ap-northeast-2.compute.amazonaws.com/api/hello"
+        "http://ec2-15-165-21-12.ap-northeast-2.compute.amazonaws.com/api/hello"
       )
       .then((res) => setHello(res.data))
       .catch((err) => console.log(err));
