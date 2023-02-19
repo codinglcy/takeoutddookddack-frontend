@@ -1,24 +1,63 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
+import BuyPage from "./Pages/BuyPage";
+import SellPage from "./Pages/SellPage";
+import OrderPage from "./Pages/OrderPage";
+import SellpageFormPage from "./Pages/SellpageFormPage";
+import BuypageListPage from "./Pages/BuypageListPage";
+import HeaderButton from "./Components/HeaderButton";
 
 function App() {
-  const [hello, setHello] = useState("");
-
-  useEffect(() => {
-    axios
-      .get("/api/hello")
-      .then((res) => setHello(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+  const [isBuyPage, setIsBuyPage] = useState(true);
 
   return (
-    <div className="App">
+    <BrowserRouter>
       <header className="App-header">
-        <img src="./logo512.png" className="App-logo" alt="logo" />
-        <div>{hello}</div>
+        <div className="PageButtons">
+          <Link to={"/sellpage"}>
+            <button
+              className="SellPageButton"
+              onClick={() => {
+                setIsBuyPage(false);
+              }}
+            >
+              {isBuyPage ? (
+                <div className="SellPageno">판매뚝딱</div>
+              ) : (
+                <div className="SellPageyes">판매뚝딱</div>
+              )}
+            </button>
+          </Link>
+          <Link to={"/"}>
+            <button
+              className="BuyPageButton"
+              onClick={() => {
+                setIsBuyPage(true);
+              }}
+            >
+              {isBuyPage ? (
+                <div className="BuyPageyes">주문뚝딱</div>
+              ) : (
+                <div className="BuyPageno">주문뚝딱</div>
+              )}
+            </button>
+          </Link>
+        </div>
+        <a href="http://localhost:3000/">
+          <div className="App-title">포장뚝딱</div>
+        </a>
+        <HeaderButton />
       </header>
-    </div>
+
+      <Routes>
+        <Route path="/" element={<BuypageListPage />}></Route>
+        <Route path="/buypage" element={<BuyPage />}></Route>
+        <Route path="/orderpage" element={<OrderPage />}></Route>
+        <Route path="/sellpage" element={<SellPage />}></Route>
+        <Route path="/sellpageform" element={<SellpageFormPage />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
