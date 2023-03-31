@@ -6,6 +6,7 @@ import SellPage from "./Pages/SellPage";
 import OrderPage from "./Pages/OrderPage";
 import SellpageFormPage from "./Pages/SellpageFormPage";
 import BuypageListPage from "./Pages/BuypageListPage";
+import UserFormPage from "./Pages/UserFormPage";
 import HeaderButton from "./Components/HeaderButton";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/orderpage" element={<OrderPage />}></Route>
         <Route path="/sellpage" element={<SellPage />}></Route>
         <Route path="/sellpageform" element={<SellpageFormPage />}></Route>
+        <Route path="/userform" element={<UserFormPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
