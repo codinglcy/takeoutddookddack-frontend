@@ -1,9 +1,11 @@
 import "./css/BuypageList.css";
+import SearchByAddress from "./SearchByAddress";
 
 const BuypageList = () => {
   return (
     <>
-      <div>주문뚝딱 가게 리스트</div>
+      <div>가게 목록</div>
+      <SearchByAddress />
     </>
   );
 };
