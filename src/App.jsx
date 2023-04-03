@@ -8,6 +8,7 @@ import SellpageFormPage from "./Pages/SellpageFormPage";
 import BuypageListPage from "./Pages/BuypageListPage";
 import UserFormPage from "./Pages/UserFormPage";
 import HeaderButton from "./Components/HeaderButton";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [isBuyPage, setIsBuyPage] = useState(true);
