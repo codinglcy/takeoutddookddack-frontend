@@ -1,0 +1,15 @@
+.menuList {
+  border: solid;
+  margin-left: 140px;
+  margin-bottom: 15px;
+}
+
+.menu {
+  padding: 5px;
+  margin: 8px 12px;
+  border: none;
+}
+
+.row > * {
+  padding-right: none;
+}
