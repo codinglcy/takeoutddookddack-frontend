@@ -33,18 +33,14 @@ const OrderForm = (props) => {
             <Form.Control
               type="tel"
               placeholder="tel"
-              defaultValue={
-                orderInfo["telNum"] ? orderInfo["telNum"] : undefined || ""
-              }
+              defaultValue={orderInfo["telNum"] || ""}
             />
           </FloatingLabel>
           <FloatingLabel controlId="name" label="주문자명">
             <Form.Control
               type="text"
               placeholder="text"
-              defaultValue={
-                orderInfo["name"] ? orderInfo["name"] : undefined || ""
-              }
+              defaultValue={orderInfo["name"] || ""}
             />
           </FloatingLabel>
         </Modal.Body>
@@ -58,7 +54,6 @@ const OrderForm = (props) => {
               handleClose();
               orderInfo["telNum"] = document.getElementById("telNum").value;
               orderInfo["name"] = document.getElementById("name").value;
-              console.log(JSON.stringify(orderInfo));
               props.parentFunc(orderInfo);
             }}
           >

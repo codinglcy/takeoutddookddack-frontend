@@ -32,7 +32,6 @@ const OrderBox = () => {
         show={show}
         setShow={setShow}
         orderInfo={orderInfo}
-        setOrderInfo={setOrderInfo}
         parentFunc={parentFunc}
       />
 
