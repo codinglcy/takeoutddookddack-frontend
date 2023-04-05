@@ -19,11 +19,6 @@ const SearchByAddress = () => {
     code: "",
     name: "",
   });
-  const [lastList, setLastList] = useState();
-  const [last, setLast] = useState({
-    code: "",
-    name: "",
-  });
 
   useEffect(() => {
     axios
@@ -40,7 +35,7 @@ const SearchByAddress = () => {
   useDidMountEffect(() => {
     axios
       .get(
-        `https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes?regcode_pattern=${first.code}*000000&is_ignore_zero=true`
+        `https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes?regcode_pattern=${first.code}*00000&is_ignore_zero=true`
       )
       .then((res) => {
         setSecondList(res.data.regcodes);
@@ -61,18 +56,6 @@ const SearchByAddress = () => {
       .catch((err) => console.log(err));
   }, [second]);
 
-  useDidMountEffect(() => {
-    axios
-      .get(
-        `https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes?regcode_pattern=${third.code}*&is_ignore_zero=true`
-      )
-      .then((res) => {
-        setLastList(res.data.regcodes);
-        console.log(res.data.regcodes);
-      })
-      .catch((err) => console.log(err));
-  }, [third]);
-
   return (
     <div>
       <select
@@ -85,7 +68,6 @@ const SearchByAddress = () => {
           });
           setSecondList();
           setThirdList();
-          setLastList();
         }}
       >
         <option value="" key="none" hidden>
@@ -106,7 +88,7 @@ const SearchByAddress = () => {
         defaultValue={second.name}
         onChange={(e) => {
           setSecond({
-            code: e.target.value.slice(0, 4),
+            code: e.target.value.slice(0, 5),
             name: e.target.options[e.target.selectedIndex].text,
           });
         }}
@@ -119,6 +101,9 @@ const SearchByAddress = () => {
             return (
               <option value={item.code} key={item.code}>
                 {item.name.split(" ")[1]}
+                {item.name.split(" ")[2]
+                  ? " " + item.name.split(" ")[2]
+                  : undefined || ""}
               </option>
             );
           })}
@@ -141,30 +126,9 @@ const SearchByAddress = () => {
           thirdList.map((item) => {
             return (
               <option value={item.code} key={item.code}>
-                {item.name.split(" ")[2]}
-              </option>
-            );
-          })}
-      </select>
-
-      <select
-        name="리"
-        defaultValue={last.name}
-        onChange={(e) => {
-          setLast({
-            code: e.target.value,
-            name: e.target.options[e.target.selectedIndex].text,
-          });
-        }}
-      >
-        <option value="" key="none" hidden>
-          리
-        </option>
-        {lastList &&
-          lastList.map((item) => {
-            return (
-              <option value={item.code} key={item.code}>
-                {item.name.split(" ")[3]}
+                {item.name.split(" ")[3]
+                  ? item.name.split(" ")[3]
+                  : item.name.split(" ")[2]}
               </option>
             );
           })}
