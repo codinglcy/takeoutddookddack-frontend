@@ -8,10 +8,16 @@ import SellpageFormPage from "./Pages/SellpageFormPage";
 import BuypageListPage from "./Pages/BuypageListPage";
 import UserFormPage from "./Pages/UserFormPage";
 import HeaderButton from "./Components/HeaderButton";
+import Login from "./Components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [isBuyPage, setIsBuyPage] = useState(true);
+  const [loginShow, setLoginShow] = useState(false);
+
+  const loginShowFunc = (show) => {
+    setLoginShow(show);
+  };
 
   return (
     <BrowserRouter>
@@ -22,6 +28,7 @@ function App() {
               className="SellPageButton"
               onClick={() => {
                 setIsBuyPage(false);
+                setLoginShow(true);
               }}
             >
               {isBuyPage ? (
@@ -30,7 +37,9 @@ function App() {
                 <div className="SellPageyes">판매뚝딱</div>
               )}
             </button>
+            <Login loginShow={loginShow} loginShowFunc={loginShowFunc} />
           </Link>
+
           <Link to={"/"}>
             <button
               className="BuyPageButton"
@@ -49,6 +58,7 @@ function App() {
         <a href="http://localhost:3000/">
           <div className="App-title">포장뚝딱</div>
         </a>
+
         <HeaderButton />
       </header>
 
