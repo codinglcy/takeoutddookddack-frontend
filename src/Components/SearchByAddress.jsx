@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useDidMountEffect from "../Util/useDidMountEffect";
 import "./css/SearchByAddress.css";
+import { Button } from "react-bootstrap";
 
 const SearchByAddress = () => {
   const [firstList, setFirstList] = useState();
@@ -133,6 +134,13 @@ const SearchByAddress = () => {
             );
           })}
       </select>
+      <Button
+        variant="outline-secondary"
+        id="button-addon2"
+        className="searchBtn"
+      >
+        검색
+      </Button>
     </div>
   );
 };
