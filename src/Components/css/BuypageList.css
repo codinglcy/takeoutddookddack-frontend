@@ -1,0 +1,15 @@
+.listBox {
+  width: 500px;
+  height: 400px;
+  overflow: auto;
+}
+
+.table {
+  table-layout: fixed;
+}
+
+td {
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  white-space: nowrap;
+}
