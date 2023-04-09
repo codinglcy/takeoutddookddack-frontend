@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useDidMountEffect from "../Util/useDidMountEffect";
 import "./css/SearchByAddress.css";
 import { Button } from "react-bootstrap";
+import axiosApi from "../Util/api";
 
 const SearchByAddress = ({ shopListFunc }) => {
   const [firstList, setFirstList] = useState();
@@ -58,12 +59,11 @@ const SearchByAddress = ({ shopListFunc }) => {
   }, [second]);
 
   const doSearch = () => {
-    axios
+    axiosApi
       .get(
-        `http://localhost:8080/api/shop/location?first=${first.name.slice(
-          0,
-          2
-        )}&second=${second.name}&third=${third.name}`
+        `/api/shop/location?first=${first.name.slice(0, 2)}&second=${
+          second.name
+        }&third=${third.name}`
       )
       .then((res) => {
         console.log(res.data);
