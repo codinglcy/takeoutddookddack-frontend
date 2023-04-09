@@ -13,10 +13,14 @@ const BuypageList = () => {
     });
   }, []);
 
+  const shopListFunc = (list) => {
+    setShopList(list);
+  };
+
   return (
     <>
       <div>가게 목록</div>
-      <SearchByAddress />
+      <SearchByAddress shopListFunc={shopListFunc} />
       <div className="listBox">
         <table className="table">
           <colgroup>

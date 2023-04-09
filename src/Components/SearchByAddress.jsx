@@ -4,7 +4,7 @@ import useDidMountEffect from "../Util/useDidMountEffect";
 import "./css/SearchByAddress.css";
 import { Button } from "react-bootstrap";
 
-const SearchByAddress = () => {
+const SearchByAddress = ({ shopListFunc }) => {
   const [firstList, setFirstList] = useState();
   const [first, setFirst] = useState({
     code: "",
@@ -56,6 +56,20 @@ const SearchByAddress = () => {
       })
       .catch((err) => console.log(err));
   }, [second]);
+
+  const doSearch = () => {
+    axios
+      .get(
+        `http://localhost:8080/api/shop/location?first=${first.name.slice(
+          0,
+          2
+        )}&second=${second.name}&third=${third.name}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        shopListFunc(res.data);
+      });
+  };
 
   return (
     <div>
@@ -138,6 +152,7 @@ const SearchByAddress = () => {
         variant="outline-secondary"
         id="button-addon2"
         className="searchBtn"
+        onClick={doSearch}
       >
         검색
       </Button>
