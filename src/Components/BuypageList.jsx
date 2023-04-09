@@ -42,7 +42,9 @@ const BuypageList = () => {
                   <tr key={shop.id}>
                     <td>{shop.location}</td>
                     <td>{shop.open ? "영업중" : "준비중"}</td>
-                    <td>{shop.shopUrl}</td>
+                    <td>
+                      <a href={shop.shopUrl}>{shop.shopUrl}</a>
+                    </td>
                   </tr>
                 );
               })}
