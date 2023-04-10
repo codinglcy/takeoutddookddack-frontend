@@ -1,5 +1,11 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 import { useState } from "react";
 import BuyPage from "./Pages/BuyPage";
 import SellPage from "./Pages/SellPage";
@@ -10,10 +16,12 @@ import UserFormPage from "./Pages/UserFormPage";
 import HeaderButton from "./Components/HeaderButton";
 import Login from "./Components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
+import GetAccessToken from "./Util/checkAccessToken";
 
 function App() {
   const [isBuyPage, setIsBuyPage] = useState(true);
   const [loginShow, setLoginShow] = useState(false);
+  const { navigate } = useNavigate();
 
   const loginShowFunc = (show) => {
     setLoginShow(show);
@@ -23,22 +31,24 @@ function App() {
     <BrowserRouter>
       <header className="App-header">
         <div className="PageButtons">
-          <Link to={"/sellpage"}>
-            <button
-              className="SellPageButton"
-              onClick={() => {
+          <button
+            className="SellPageButton"
+            onClick={() => {
+              if (localStorage.getItem("accessToken") && GetAccessToken()) {
                 setIsBuyPage(false);
+                navigate("/sellPage");
+              } else {
                 setLoginShow(true);
-              }}
-            >
-              {isBuyPage ? (
-                <div className="SellPageno">판매뚝딱</div>
-              ) : (
-                <div className="SellPageyes">판매뚝딱</div>
-              )}
-            </button>
-            <Login loginShow={loginShow} loginShowFunc={loginShowFunc} />
-          </Link>
+              }
+            }}
+          >
+            {isBuyPage ? (
+              <div className="SellPageno">판매뚝딱</div>
+            ) : (
+              <div className="SellPageyes">판매뚝딱</div>
+            )}
+          </button>
+          <Login loginShow={loginShow} loginShowFunc={loginShowFunc} />
 
           <Link to={"/"}>
             <button
