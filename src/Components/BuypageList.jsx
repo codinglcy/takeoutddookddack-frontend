@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import "./css/BuypageList.css";
 import SearchByAddress from "./SearchByAddress";
-import axios from "axios";
+import axiosApi from "../Util/api";
 
 const BuypageList = () => {
   const [shopList, setShopList] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/shop/all").then((res) => {
+    axiosApi.get("/api/shop/all").then((res) => {
       setShopList(res.data);
       console.log(res.data);
     });
