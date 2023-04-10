@@ -75,7 +75,7 @@ function App() {
       <Routes>
         <Route path="/" element={<BuypageListPage />}></Route>
         <Route path="/buypage/:sellerId" element={<BuyPage />}></Route>
-        <Route path="/orderpage" element={<OrderPage />}></Route>
+        <Route path="/orderpage/:sellerId" element={<OrderPage />}></Route>
         <Route path="/sellpage" element={<SellPage />}></Route>
         <Route path="/sellpageform" element={<SellpageFormPage />}></Route>
         <Route path="/userform" element={<UserFormPage />}></Route>
