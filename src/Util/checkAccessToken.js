@@ -1,13 +1,15 @@
-import { useState } from "react";
+// import { useState } from "react";
 import axiosApi from "./api";
 
-const GetAccessToken = () => {
-  const [accessToken, setAccessToken] = useState(
-    localStorage.getItem("accessToken")
-  );
-  const [refreshToken, setRefreshToken] = useState(
-    localStorage.getItem("refreshToken")
-  );
+const getAccessToken = () => {
+  // const [accessToken, setAccessToken] = useState(
+  //   localStorage.getItem("accessToken")
+  // );
+  // const [refreshToken, setRefreshToken] = useState(
+  //   localStorage.getItem("refreshToken")
+  // );
+  let accessToken = localStorage.getItem("accessToken");
+  let refreshToken = localStorage.getItem("refreshToken");
 
   try {
     axiosApi
@@ -23,14 +25,12 @@ const GetAccessToken = () => {
       .catch((err) => {
         console.log(err);
         axiosApi
-          .get("/api/seller/checkRefreshToken", {
-            refreshToken: refreshToken,
-          })
+          .get(`/api/seller/checkRefreshToken?token=${refreshToken}`)
           .then((res) => {
             console.log(res);
-            setAccessToken(res.data.accessToken);
-            setRefreshToken(res.data.refreshToken);
-            localStorage.setItem("refreshToken", res.data.refreshToken);
+            accessToken = res.data.accessToken;
+            refreshToken = res.data.refreshToken;
+            localStorage.setItem("refreshToken", refreshToken);
           })
           .catch((err) => {
             console.log(err);
@@ -43,4 +43,4 @@ const GetAccessToken = () => {
   }
 };
 
-export default GetAccessToken;
+export default getAccessToken;

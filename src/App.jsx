@@ -1,11 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import BuyPage from "./Pages/BuyPage";
 import SellPage from "./Pages/SellPage";
@@ -16,25 +10,28 @@ import UserFormPage from "./Pages/UserFormPage";
 import HeaderButton from "./Components/HeaderButton";
 import Login from "./Components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
-import GetAccessToken from "./Util/checkAccessToken";
+import getAccessToken from "./Util/checkAccessToken";
 
 function App() {
   const [isBuyPage, setIsBuyPage] = useState(true);
   const [loginShow, setLoginShow] = useState(false);
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
 
   const loginShowFunc = (show) => {
     setLoginShow(show);
   };
+  const isBuyPageFunc = (is) => {
+    setIsBuyPage(is);
+  };
 
   return (
-    <BrowserRouter>
+    <>
       <header className="App-header">
         <div className="PageButtons">
           <button
             className="SellPageButton"
             onClick={() => {
-              if (localStorage.getItem("accessToken") && GetAccessToken()) {
+              if (localStorage.getItem("accessToken") && getAccessToken()) {
                 setIsBuyPage(false);
                 navigate("/sellPage");
               } else {
@@ -48,7 +45,11 @@ function App() {
               <div className="SellPageyes">판매뚝딱</div>
             )}
           </button>
-          <Login loginShow={loginShow} loginShowFunc={loginShowFunc} />
+          <Login
+            loginShow={loginShow}
+            loginShowFunc={loginShowFunc}
+            isBuyPageFunc={isBuyPageFunc}
+          />
 
           <Link to={"/"}>
             <button
@@ -80,7 +81,7 @@ function App() {
         <Route path="/sellpageform" element={<SellpageFormPage />}></Route>
         <Route path="/userform" element={<UserFormPage />}></Route>
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

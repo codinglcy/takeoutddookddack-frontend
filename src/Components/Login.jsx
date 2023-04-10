@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const logShow = props.loginShow;
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
 
   const handleClose = () => {
     props.loginShowFunc(false);
@@ -40,9 +40,9 @@ const Login = (props) => {
             variant="primary"
             onClick={() => {
               axiosApi
-                .get("/api/seller/login", {
-                  sellerId: document.getElementById("id").value,
-                  pwd: document.getElementById("password").value,
+                .post("/api/seller/login", {
+                  sellerId: `${document.getElementById("id").value}`,
+                  pwd: `${document.getElementById("password").value}`,
                 })
                 .then((res) => {
                   console.log(res.data);
@@ -50,11 +50,11 @@ const Login = (props) => {
                   localStorage.setItem("refreshToken", res.data.refreshToken);
                   handleClose();
                   navigate("/sellpage");
+                  props.isBuyPageFunc(false);
                 })
                 .catch((err) => {
-                  console.log(err);
-                  // alert('존재하지 않는 아이디입니다.')
-                  // alert('비밀번호를 다시 확인해주세요.')
+                  console.log(err.response.data.message);
+                  alert(`${err.response.data.message}`);
                 });
             }}
           >
