@@ -5,12 +5,42 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import DaumPostCode from "react-daum-postcode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputGroup } from "react-bootstrap";
+import axiosApi from "../Util/api";
+import GetAccessToken from "../Util/checkAccessToken";
 
 const SellPageForm = () => {
-  const url = "http://localhost:3000/buypage";
+  // const url = "http://localhost:3000/buypage";
   const [show, setShow] = useState(false);
+  const accessToken = GetAccessToken();
+  const [sellerShopInfo, setSellerShopInfo] = useState({});
+
+  // const getSellerShopInfo = () => {
+  //   axiosApi
+  //     .get("api/shop", {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${accessToken}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setSellerShopInfo(res.data);
+  //       console.log(res.data);
+  //     });
+  // };
+
+  useEffect(() => {
+    axiosApi
+      .get("api/shop", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then((res) => {
+        setSellerShopInfo(res.data);
+      });
+  }, [accessToken]);
 
   return (
     <>
@@ -22,7 +52,7 @@ const SellPageForm = () => {
         <Col sm="7">
           <Form.Control
             type="text"
-            placeholder={url}
+            placeholder={sellerShopInfo.shopUrl}
             aria-label="Disabled input example"
             disabled
             readOnly
@@ -30,29 +60,77 @@ const SellPageForm = () => {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="menuPlus">
+      <Form.Group as={Row} className="mb-3">
         <Form.Label column sm="2">
           메뉴
         </Form.Label>
         <Col sm="3">
-          <Form.Control type="text" placeholder="메뉴명" />
+          <Form.Control type="text" placeholder="메뉴명" id="plusMenuItem" />
         </Col>
         <Col sm="3">
-          <Form.Control type="text" placeholder="가격" />
+          <Form.Control type="text" placeholder="가격" id="plusMenuPrice" />
         </Col>
         <Col sm="1">
-          <Button variant="outline-secondary" id="button-addon2">
-            Button
+          <Button
+            variant="outline-secondary"
+            id="button-addon2"
+            onClick={() => {
+              axiosApi
+                .patch("/api/shop/addmenu", {
+                  id: sellerShopInfo._id,
+                  item: document.getElementById("plusMenuItem").value,
+                  price: document.getElementById("plusMenuPrice").value,
+                })
+                .then((res) => {
+                  setSellerShopInfo(res.data);
+                });
+              document.getElementById("plusMenuItem").value = "";
+              document.getElementById("plusMenuPrice").value = "";
+            }}
+          >
+            추가
           </Button>
         </Col>
       </Form.Group>
 
       <div className="menuList">
-        <input className="menu" readOnly defaultValue="email@example.com" />
-        <input className="menu" readOnly defaultValue="email@example.com" />
-        <Button variant="outline-secondary" id="button-addon2" className="menu">
-          Button
-        </Button>
+        {sellerShopInfo &&
+          sellerShopInfo.menu.map((menu) => {
+            return (
+              <>
+                <input
+                  key={menu.item}
+                  className="menu"
+                  readOnly
+                  defaultValue={menu.item}
+                  id={menu.item}
+                />
+                <input
+                  key={menu.price}
+                  className="menu"
+                  readOnly
+                  defaultValue={menu.price}
+                />
+                <Button
+                  variant="outline-secondary"
+                  id="button-addon2"
+                  className="menu"
+                  onClick={() => {
+                    axiosApi
+                      .patch("/api/shop/deleteMenu", {
+                        id: sellerShopInfo._id,
+                        item: document.getElementById(`${menu.item}`).value,
+                      })
+                      .then((res) => {
+                        setSellerShopInfo(res.data);
+                      });
+                  }}
+                >
+                  삭제
+                </Button>
+              </>
+            );
+          })}
       </div>
 
       <Form.Group as={Row} className="mb-3">
@@ -66,6 +144,7 @@ const SellPageForm = () => {
               type="text"
               readOnly
               placeholder="근처 건물 주소"
+              value={sellerShopInfo.location.split(" ").slice(0, -1)}
             />
 
             <Button
@@ -87,22 +166,42 @@ const SellPageForm = () => {
           />
         </Modal>
         <Col sm="3">
-          <Form.Control type="text" placeholder="상세 (ex: 앞 / 맞은편)" />
+          <Form.Control
+            type="text"
+            id="addressMore"
+            placeholder="상세 (ex: 앞 / 맞은편)"
+            value={sellerShopInfo.location.split(" ").slice(-1)}
+          />
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="account">
+      <Form.Group as={Row} className="mb-3">
         <Form.Label column sm="2">
           입금 받을 계좌
         </Form.Label>
         <Col sm="1">
-          <Form.Control type="text" placeholder="은행" />
+          <Form.Control
+            type="text"
+            id="bank"
+            placeholder="은행"
+            value={sellerShopInfo.bankAccount.split(" ").slice(0)}
+          />
         </Col>
         <Col sm="4">
-          <Form.Control type="text" placeholder="계좌번호" />
+          <Form.Control
+            type="text"
+            id="accountNum"
+            placeholder="계좌번호"
+            value={sellerShopInfo.bankAccount.split(" ").slice(1, 2)}
+          />
         </Col>
         <Col sm="2">
-          <Form.Control type="text" placeholder="예금주명" />
+          <Form.Control
+            type="text"
+            id="accountName"
+            placeholder="예금주명"
+            value={sellerShopInfo.bankAccount.split(" ").slice(2, 3)}
+          />
         </Col>
       </Form.Group>
     </>
