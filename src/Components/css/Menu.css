@@ -1,0 +1,39 @@
+.menuTitle {
+  text-align: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.menuBox {
+  /* background-color: beige; */
+  border: solid 1px;
+  border-radius: 5%;
+  width: 400px;
+  height: 400px;
+}
+
+.listBox {
+  max-width: 370px;
+  max-height: 350px;
+  overflow: auto;
+  /* background-color: blueviolet; */
+}
+
+.table {
+  table-layout: fixed;
+  max-width: 370px;
+  max-height: 100%;
+  /* text-align: center; */
+}
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+}
+
+input {
+  border: none;
+}

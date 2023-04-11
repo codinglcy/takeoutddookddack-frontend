@@ -2,7 +2,7 @@ import "./css/OrderBox.css";
 import React, { useState } from "react";
 import OrderForm from "./OrderForm";
 
-const OrderBox = () => {
+const OrderBox = (props) => {
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
@@ -27,6 +27,9 @@ const OrderBox = () => {
   return (
     <>
       <div>주문뚝딱 주문서&주문자정보입력버튼</div>
+
+      <div></div>
+
       <button onClick={handleShow}>주문자 정보 입력</button>
       <OrderForm
         show={show}
@@ -37,7 +40,8 @@ const OrderBox = () => {
 
       <button
         onClick={() => {
-          console.log(JSON.stringify(orderInfo));
+          console.log(orderInfo);
+          console.log(props.selectMenu);
         }}
       >
         정보보기
