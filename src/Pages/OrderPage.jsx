@@ -8,9 +8,12 @@ const OrderPage = (props) => {
   const sellerId = useParams().sellerId;
   console.log(sellerId);
 
-  const selectMenuFunc = (menu) => {
+  const selectMenuPlusFunc = (menu) => {
     console.log(menu);
     setSelectMenu([...selectMenu, menu]);
+  };
+  const selectMenuFunc = (list) => {
+    setSelectMenu(list);
   };
 
   useEffect(() => {
@@ -22,10 +25,10 @@ const OrderPage = (props) => {
       <div>주문뚝딱 주문서 작성 페이지입니다.</div>
       <Menu
         sellerId={sellerId}
-        selectMenuFunc={selectMenuFunc}
+        selectMenuPlusFunc={selectMenuPlusFunc}
         selectMenu={selectMenu}
       />
-      <OrderBox selectMenu={selectMenu} />
+      <OrderBox selectMenu={selectMenu} selectMenuFunc={selectMenuFunc} />
     </div>
   );
 };
