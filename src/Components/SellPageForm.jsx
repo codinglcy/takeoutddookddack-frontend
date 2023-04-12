@@ -8,31 +8,25 @@ import DaumPostCode from "react-daum-postcode";
 import { useEffect, useState } from "react";
 import { InputGroup } from "react-bootstrap";
 import axiosApi from "../Util/api";
-import GetAccessToken from "../Util/checkAccessToken";
+import getAccessToken from "../Util/checkAccessToken";
+import useDidMountEffect from "../Util/useDidMountEffect";
 
 const SellPageForm = () => {
-  // const url = "http://localhost:3000/buypage";
   const [show, setShow] = useState(false);
-  const accessToken = GetAccessToken();
+  const [accessToken, setAccessToken] = useState();
   const [sellerShopInfo, setSellerShopInfo] = useState({});
-
-  // const getSellerShopInfo = () => {
-  //   axiosApi
-  //     .get("api/shop", {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${accessToken}`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       setSellerShopInfo(res.data);
-  //       console.log(res.data);
-  //     });
-  // };
+  const [shopMenu, setShopMenu] = useState([]);
+  const [shopLocation, setShopLocation] = useState("");
+  const [shopBankAccount, setShopBankAccount] = useState("");
 
   useEffect(() => {
+    let token = getAccessToken();
+    setAccessToken(token);
+  }, []);
+
+  useDidMountEffect(() => {
     axiosApi
-      .get("api/shop", {
+      .get("/api/shop", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -41,6 +35,12 @@ const SellPageForm = () => {
         setSellerShopInfo(res.data);
       });
   }, [accessToken]);
+
+  useDidMountEffect(() => {
+    setShopMenu(sellerShopInfo.menu);
+    setShopLocation(sellerShopInfo.location);
+    setShopBankAccount(sellerShopInfo.bankAccount);
+  }, [sellerShopInfo]);
 
   return (
     <>
@@ -77,7 +77,7 @@ const SellPageForm = () => {
             onClick={() => {
               axiosApi
                 .patch("/api/shop/addmenu", {
-                  id: sellerShopInfo._id,
+                  id: sellerShopInfo.id,
                   item: document.getElementById("plusMenuItem").value,
                   price: document.getElementById("plusMenuPrice").value,
                 })
@@ -94,10 +94,10 @@ const SellPageForm = () => {
       </Form.Group>
 
       <div className="menuList">
-        {sellerShopInfo &&
-          sellerShopInfo.menu.map((menu) => {
+        {shopMenu &&
+          shopMenu.map((menu) => {
             return (
-              <>
+              <div key={`${menu.item}-div`}>
                 <input
                   key={menu.item}
                   className="menu"
@@ -106,29 +106,36 @@ const SellPageForm = () => {
                   id={menu.item}
                 />
                 <input
-                  key={menu.price}
+                  key={`${menu.item}-price`}
                   className="menu"
                   readOnly
                   defaultValue={menu.price}
                 />
                 <Button
+                  key={`${menu.item}-btn`}
                   variant="outline-secondary"
                   id="button-addon2"
                   className="menu"
                   onClick={() => {
-                    axiosApi
-                      .patch("/api/shop/deleteMenu", {
-                        id: sellerShopInfo._id,
-                        item: document.getElementById(`${menu.item}`).value,
-                      })
-                      .then((res) => {
-                        setSellerShopInfo(res.data);
-                      });
+                    if (
+                      window.confirm(
+                        `메뉴: ${menu.item}\n가격: ${menu.price}\n정말 삭제하시겠습니까?`
+                      )
+                    ) {
+                      axiosApi
+                        .patch("/api/shop/deletemenu", {
+                          id: sellerShopInfo.id,
+                          item: menu.item,
+                        })
+                        .then((res) => {
+                          setSellerShopInfo(res.data);
+                        });
+                    }
                   }}
                 >
                   삭제
                 </Button>
-              </>
+              </div>
             );
           })}
       </div>
@@ -144,7 +151,10 @@ const SellPageForm = () => {
               type="text"
               readOnly
               placeholder="근처 건물 주소"
-              value={sellerShopInfo.location.split(" ").slice(0, -1)}
+              defaultValue={(shopLocation || "")
+                .split(" ")
+                .slice(0, -1)
+                .join(" ")}
             />
 
             <Button
@@ -170,7 +180,7 @@ const SellPageForm = () => {
             type="text"
             id="addressMore"
             placeholder="상세 (ex: 앞 / 맞은편)"
-            value={sellerShopInfo.location.split(" ").slice(-1)}
+            defaultValue={(shopLocation || "").split(" ").slice(-1)}
           />
         </Col>
       </Form.Group>
@@ -184,7 +194,7 @@ const SellPageForm = () => {
             type="text"
             id="bank"
             placeholder="은행"
-            value={sellerShopInfo.bankAccount.split(" ").slice(0)}
+            defaultValue={(shopBankAccount || "").split(" ").slice(0)}
           />
         </Col>
         <Col sm="4">
@@ -192,7 +202,7 @@ const SellPageForm = () => {
             type="text"
             id="accountNum"
             placeholder="계좌번호"
-            value={sellerShopInfo.bankAccount.split(" ").slice(1, 2)}
+            defaultValue={(shopBankAccount || "").split(" ").slice(1, 2)}
           />
         </Col>
         <Col sm="2">
@@ -200,7 +210,7 @@ const SellPageForm = () => {
             type="text"
             id="accountName"
             placeholder="예금주명"
-            value={sellerShopInfo.bankAccount.split(" ").slice(2, 3)}
+            defaultValue={(shopBankAccount || "").split(" ").slice(2, 3)}
           />
         </Col>
       </Form.Group>
