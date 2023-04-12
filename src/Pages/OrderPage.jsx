@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import Menu from "../Components/Menu";
 import OrderBox from "../Components/OrderBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const OrderPage = () => {
+const OrderPage = (props) => {
   const [selectMenu, setSelectMenu] = useState([]);
   const sellerId = useParams().sellerId;
   console.log(sellerId);
@@ -12,6 +12,10 @@ const OrderPage = () => {
     console.log(menu);
     setSelectMenu([...selectMenu, menu]);
   };
+
+  useEffect(() => {
+    props.isBuyPageFunc(true);
+  }, [props]);
 
   return (
     <div className="Pages">

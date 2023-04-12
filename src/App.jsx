@@ -32,7 +32,6 @@ function App() {
             className="SellPageButton"
             onClick={() => {
               if (localStorage.getItem("accessToken") && getAccessToken()) {
-                setIsBuyPage(false);
                 navigate("/sellPage");
               } else {
                 setLoginShow(true);
@@ -52,12 +51,7 @@ function App() {
           />
 
           <Link to={"/"}>
-            <button
-              className="BuyPageButton"
-              onClick={() => {
-                setIsBuyPage(true);
-              }}
-            >
+            <button className="BuyPageButton">
               {isBuyPage ? (
                 <div className="BuyPageyes">주문뚝딱</div>
               ) : (
@@ -74,12 +68,30 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/" element={<BuypageListPage />}></Route>
-        <Route path="/buypage/:sellerId" element={<BuyPage />}></Route>
-        <Route path="/orderpage/:sellerId" element={<OrderPage />}></Route>
-        <Route path="/sellpage" element={<SellPage />}></Route>
-        <Route path="/sellpageform" element={<SellpageFormPage />}></Route>
-        <Route path="/userform" element={<UserFormPage />}></Route>
+        <Route
+          path="/"
+          element={<BuypageListPage isBuyPageFunc={isBuyPageFunc} />}
+        ></Route>
+        <Route
+          path="/buypage/:sellerId"
+          element={<BuyPage isBuyPageFunc={isBuyPageFunc} />}
+        ></Route>
+        <Route
+          path="/orderpage/:sellerId"
+          element={<OrderPage isBuyPageFunc={isBuyPageFunc} />}
+        ></Route>
+        <Route
+          path="/sellpage"
+          element={<SellPage isBuyPageFunc={isBuyPageFunc} />}
+        ></Route>
+        <Route
+          path="/sellpageform"
+          element={<SellpageFormPage isBuyPageFunc={isBuyPageFunc} />}
+        ></Route>
+        <Route
+          path="/userform"
+          element={<UserFormPage isBuyPageFunc={isBuyPageFunc} />}
+        ></Route>
       </Routes>
     </>
   );
