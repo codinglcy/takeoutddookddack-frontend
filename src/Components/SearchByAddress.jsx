@@ -59,11 +59,16 @@ const SearchByAddress = ({ shopListFunc }) => {
   }, [second]);
 
   const doSearch = () => {
+    const no2 = ["충청", "전라", "경상"];
+    let firstSlice = first.name.slice(0, 2);
+    if (no2.includes(firstSlice)) {
+      firstSlice = first.name.slice(0, 1) + first.name.slice(2, 3);
+      console.log(firstSlice);
+    }
+
     axiosApi
       .get(
-        `/api/shop/location?first=${first.name.slice(0, 2)}&second=${
-          second.name
-        }&third=${third.name}`
+        `/api/shop/location?first=${firstSlice}&second=${second.name}&third=${third.name}`
       )
       .then((res) => {
         console.log(res.data);
