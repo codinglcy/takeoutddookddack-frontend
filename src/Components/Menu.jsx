@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "./css/Menu.css";
 import axiosApi from "../Util/api";
 import { Button } from "react-bootstrap";
+import useDidMountEffect from "../Util/useDidMountEffect";
 
 const Menu = (props) => {
   const [menuList, setMenuList] = useState();
+  const [selectedMenuItem, setSelectedMenuItem] = useState([]);
   const sellerId = props.sellerId;
 
   useEffect(() => {
@@ -13,6 +15,14 @@ const Menu = (props) => {
       setMenuList(res.data.menu);
     });
   }, [sellerId]);
+
+  useDidMountEffect(() => {
+    let list = [];
+    props.selectMenu.map((menu) => {
+      return list.push(menu.item);
+    });
+    setSelectedMenuItem(list);
+  }, [props.selectMenu]);
 
   return (
     <>
@@ -49,14 +59,11 @@ const Menu = (props) => {
                         />
                       </td>
                       <td>
-                        {props.selectMenu.includes(menu) ? (
+                        {selectedMenuItem.includes(menu.item) ? (
                           <Button
                             id={`${menu.item}-btn`}
                             variant="outline-secondary"
                             disabled={true}
-                            onClick={() => {
-                              props.selectMenuFunc(menu);
-                            }}
                           >
                             담기
                           </Button>
@@ -65,7 +72,11 @@ const Menu = (props) => {
                             id={`${menu.item}-btn`}
                             variant="outline-secondary"
                             onClick={() => {
-                              props.selectMenuFunc(menu);
+                              props.selectMenuPlusFunc({
+                                item: menu.item,
+                                price: menu.price,
+                                quantity: 1,
+                              });
                             }}
                           >
                             담기
