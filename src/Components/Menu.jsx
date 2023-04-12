@@ -8,7 +8,7 @@ const Menu = (props) => {
   const sellerId = props.sellerId;
 
   useEffect(() => {
-    axiosApi.get(`/api/shop/url?sellerId=${sellerId}`).then((res) => {
+    axiosApi.get(`/api/shop/order?sellerId=${sellerId}`).then((res) => {
       console.log(res.data);
       setMenuList(res.data.menu);
     });
