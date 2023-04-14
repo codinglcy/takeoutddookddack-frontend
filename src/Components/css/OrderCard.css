@@ -1,0 +1,6 @@
+.table {
+  table-layout: fixed;
+  max-width: 254px;
+  max-height: 100%;
+  /* text-align: center; */
+}
