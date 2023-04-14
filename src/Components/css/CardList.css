@@ -1,0 +1,9 @@
+.cardList {
+  height: 350px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.cardList::-webkit-scrollbar {
+  display: none;
+}
