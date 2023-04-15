@@ -1,0 +1,10 @@
+.situation {
+  width: 600px;
+  text-align: center;
+}
+
+.situationTable {
+  table-layout: fixed;
+  width: 100%;
+  white-space: pre-wrap;
+}
