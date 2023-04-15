@@ -10,11 +10,6 @@ const Register = () => {
       <div>판매뚝딱 회원가입폼</div>
       <div className="registerForm">
         <InputGroup className="mb-3">
-          {/* <Form.Control
-          placeholder="id"
-          aria-label="id"
-          aria-describedby="basic-addon2"
-        /> */}
           <FloatingLabel controlId="id" label="Id">
             <Form.Control type="text" placeholder="id" />
           </FloatingLabel>
