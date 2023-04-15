@@ -24,7 +24,7 @@ const OrderCard = (props) => {
       setIdx(props.idx);
       setOrder(props.orderInfo);
       console.log(props.idx, props.orderInfo);
-    }, 100);
+    }, 10);
   }, [props.idx, props.orderInfo]);
 
   return (
