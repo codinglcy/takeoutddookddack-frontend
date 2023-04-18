@@ -114,7 +114,7 @@ const OrderBox = (props) => {
         </div>
         <div>
           <div>총 금액:</div>
-          <div>{totalPrice}</div>
+          <div>{totalPrice} 원</div>
         </div>
       </div>
 
