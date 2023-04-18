@@ -34,7 +34,15 @@ const Login = (props) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-primary">회원가입</Button>
-          <Button variant="outline-primary">임시 비밀번호 발급</Button>
+          <Button
+            variant="outline-primary"
+            onClick={() => {
+              handleClose();
+              props.pwdEmailShowFunc(true);
+            }}
+          >
+            임시 비밀번호 발급
+          </Button>
           <Button variant="secondary" onClick={handleClose}>
             취소
           </Button>
@@ -52,7 +60,6 @@ const Login = (props) => {
                   localStorage.setItem("refreshToken", res.data.refreshToken);
                   handleClose();
                   navigate("/sellpage");
-                  props.isBuyPageFunc(false);
                 })
                 .catch((err) => {
                   console.log(err.response.data.message);

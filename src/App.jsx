@@ -11,10 +11,12 @@ import HeaderButton from "./Components/HeaderButton";
 import Login from "./Components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import getAccessToken from "./Util/checkAccessToken";
+import PwdEmail from "./Components/PwdEmail";
 
 function App() {
   const [isBuyPage, setIsBuyPage] = useState(true);
   const [loginShow, setLoginShow] = useState(false);
+  const [pwdEmailShow, setPwdEmailShow] = useState(false);
   const navigate = useNavigate();
 
   const loginShowFunc = (show) => {
@@ -22,6 +24,9 @@ function App() {
   };
   const isBuyPageFunc = (is) => {
     setIsBuyPage(is);
+  };
+  const pwdEmailShowFunc = (truefalse) => {
+    setPwdEmailShow(truefalse);
   };
 
   return (
@@ -47,7 +52,11 @@ function App() {
           <Login
             loginShow={loginShow}
             loginShowFunc={loginShowFunc}
-            isBuyPageFunc={isBuyPageFunc}
+            pwdEmailShowFunc={pwdEmailShowFunc}
+          />
+          <PwdEmail
+            pwdEmailShow={pwdEmailShow}
+            pwdEmailShowFunc={pwdEmailShowFunc}
           />
 
           <Link to={"/"}>
