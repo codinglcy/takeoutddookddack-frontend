@@ -30,7 +30,9 @@ const CardList = () => {
   };
 
   useEffect(() => {
-    getOrdersFunc();
+    if (getAccessToken()) {
+      getOrdersFunc();
+    }
   }, []);
 
   return (
