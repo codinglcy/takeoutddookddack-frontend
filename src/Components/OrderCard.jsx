@@ -23,13 +23,12 @@ const OrderCard = (props) => {
     setTimeout(() => {
       setIdx(props.idx);
       setOrder(props.orderInfo);
-      console.log(props.idx, props.orderInfo);
     }, 10);
   }, [props.idx, props.orderInfo]);
 
   return (
     <>
-      <div id="number">{idx + 1}</div>
+      <div id="number">{idx + 1 || ""}</div>
       <button id="closeBtn" onClick={() => removeOrder(order.id, idx + 1)}>
         x
       </button>
