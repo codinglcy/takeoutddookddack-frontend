@@ -89,7 +89,7 @@ function App() {
           element={<SellpageFormPage isBuyPageFunc={isBuyPageFunc} />}
         ></Route>
         <Route
-          path="/userform"
+          path="/userform/:newedit"
           element={<UserFormPage isBuyPageFunc={isBuyPageFunc} />}
         ></Route>
       </Routes>
