@@ -12,7 +12,7 @@ const getAccessToken = () => {
   }
   try {
     axiosApi
-      .get("api/seller/checkAccessToken", {
+      .get("/api/seller/checkAccessToken", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
