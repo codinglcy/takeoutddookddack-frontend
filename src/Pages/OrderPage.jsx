@@ -28,7 +28,11 @@ const OrderPage = (props) => {
         selectMenuPlusFunc={selectMenuPlusFunc}
         selectMenu={selectMenu}
       />
-      <OrderBox selectMenu={selectMenu} selectMenuFunc={selectMenuFunc} />
+      <OrderBox
+        selectMenu={selectMenu}
+        sellerId={sellerId}
+        selectMenuFunc={selectMenuFunc}
+      />
     </div>
   );
 };

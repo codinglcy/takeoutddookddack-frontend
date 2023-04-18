@@ -11,11 +11,12 @@ const OrderBox = (props) => {
   const handleShow = () => setShow(true);
 
   const [orderInfo, setOrderInfo] = useState({
-    info1: "11111",
-    info2: "22222",
-    info3: "33333",
+    status: "New",
+    sellerId: props.sellerId,
     telNum: "",
     name: "",
+    selectMenu: [],
+    totalPrice: 0,
   });
 
   const parentFunc = (orderInfor) => {
@@ -54,8 +55,14 @@ const OrderBox = (props) => {
       total = total + menu.price * menu.quantity;
       return total;
     });
-    console.log(total);
     setTotalPrice(total);
+
+    setOrderInfo((current) => {
+      let newInfo = { ...current };
+      newInfo["selectMenu"] = props.selectMenu;
+      newInfo["totalPrice"] = total;
+      return newInfo;
+    });
   }, [props.selectMenu]);
 
   useDidMountEffect(() => {
