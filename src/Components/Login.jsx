@@ -33,6 +33,8 @@ const Login = (props) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="outline-primary">회원가입</Button>
+          <Button variant="outline-primary">임시 비밀번호 발급</Button>
           <Button variant="secondary" onClick={handleClose}>
             취소
           </Button>
