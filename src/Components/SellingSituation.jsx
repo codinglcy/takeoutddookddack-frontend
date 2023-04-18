@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "./css/SellingSituation.css";
 import axiosApi from "../Util/api";
+import useDidMountEffect from "../Util/useDidMountEffect";
 
 const SellingSituation = (props) => {
   const sellerId = props.sellerId;
   const [orders, setOrders] = useState([]);
+  const [statusGroup, setStatusGroup] = useState("All");
 
   const getOrders = () => {
     axiosApi
@@ -38,6 +40,11 @@ const SellingSituation = (props) => {
     getOrders();
   });
 
+  useDidMountEffect(() => {
+    getOrders();
+    setStatusGroup(props.status);
+  }, [props.status]);
+
   return (
     <>
       <div>주문뚝딱 가게판매현황</div>
@@ -58,7 +65,10 @@ const SellingSituation = (props) => {
           </thead>
           <tbody>
             {orders &&
-              orders.map((order, idx) => {
+              (statusGroup === "All"
+                ? orders
+                : orders.filter((order) => order.status === statusGroup)
+              ).map((order, idx) => {
                 return (
                   <tr key={idx}>
                     <td>

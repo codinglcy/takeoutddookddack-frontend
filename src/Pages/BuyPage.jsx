@@ -8,6 +8,11 @@ import axiosApi from "../Util/api";
 const BuyPage = (props) => {
   const sellerId = useParams().sellerId;
   const [shopInfo, setShopInfo] = useState({});
+  const [status, setStatus] = useState("");
+
+  const statusFunc = (statusValue) => {
+    setStatus(statusValue);
+  };
 
   useEffect(() => {
     props.isBuyPageFunc(true);
@@ -28,8 +33,8 @@ const BuyPage = (props) => {
         location={shopInfo.location}
         bankAccount={shopInfo.bankAccount}
       />
-      <SellingSituation sellerId={sellerId} />
-      <StatusType />
+      <SellingSituation sellerId={sellerId} status={status} />
+      <StatusType statusFunc={statusFunc} />
     </div>
   );
 };
