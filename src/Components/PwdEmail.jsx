@@ -19,15 +19,15 @@ const PwdEmail = (props) => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="id">
-              <Form.Label>ID</Form.Label>
+              <Form.Label>ID(아이디)</Form.Label>
               <Form.Control type="text" placeholder="Enter ID" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="name">
-              <Form.Label>성명</Form.Label>
+              <Form.Label>Name(성명)</Form.Label>
               <Form.Control type="text" placeholder="Enter Name" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>이메일</Form.Label>
+              <Form.Label>Email(이메일)</Form.Label>
               <Form.Control type="email" placeholder="Enter Email" />
             </Form.Group>
           </Form>

@@ -23,17 +23,25 @@ const Login = (props) => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="id">
-              <Form.Label>ID</Form.Label>
+              <Form.Label>ID(아이디)</Form.Label>
               <Form.Control type="text" placeholder="Enter ID" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Password(비밀번호)</Form.Label>
               <Form.Control type="password" placeholder="Enter Password" />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-primary">회원가입</Button>
+          <Button
+            variant="outline-primary"
+            onClick={() => {
+              handleClose();
+              navigate("/userform/new");
+            }}
+          >
+            회원가입
+          </Button>
           <Button
             variant="outline-primary"
             onClick={() => {
