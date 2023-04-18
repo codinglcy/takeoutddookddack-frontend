@@ -9,9 +9,12 @@ import getAccessToken from "../Util/checkAccessToken";
 
 const Register = (props) => {
   const [seller, setSeller] = useState({});
+  const [idCheck, setIdCheck] = useState(false);
+  console.log(idCheck);
 
   useEffect(() => {
     if (props.newedit === "edit") {
+      setIdCheck(true);
       axiosApi
         .get("/api/seller", {
           headers: {
@@ -37,10 +40,26 @@ const Register = (props) => {
               type="text"
               placeholder="id"
               defaultValue={seller.sellerId || ""}
+              onChange={() => setIdCheck(false)}
             />
           </FloatingLabel>
-          <Button variant="outline-secondary" id="button-addon2">
-            Button
+          <Button
+            variant="outline-secondary"
+            id="button-addon2"
+            onClick={() => {
+              axiosApi
+                .get(
+                  `/api/seller/idCheck?sellerId=${
+                    document.getElementById("id").value
+                  }`
+                )
+                .then((res) => {
+                  alert(res.data.message);
+                  setIdCheck(true);
+                });
+            }}
+          >
+            중복체크
           </Button>
         </InputGroup>
         <FloatingLabel
