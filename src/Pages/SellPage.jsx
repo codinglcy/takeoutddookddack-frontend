@@ -1,16 +1,70 @@
+import { useNavigate } from "react-router-dom";
 import CardList from "../Components/CardList";
-// import StatusType from "../Components/StatusType";
 import { useEffect } from "react";
+import axiosApi from "../Util/api";
+import getAccessToken from "../Util/checkAccessToken";
 
 const SellPage = (props) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     props.isBuyPageFunc(false);
   }, [props]);
 
+  useEffect(() => {
+    axiosApi
+      .get("/api/shop", {
+        headers: {
+          Authorization: `Bearer ${getAccessToken()}`,
+        },
+      })
+      .then((res) => {
+        if (!res.data.menu) {
+          if (
+            window.confirm(
+              "회원님의 가게 정보가 비어있습니다.\n채우러 가시겠습니까?."
+            )
+          ) {
+            navigate("/sellpageform");
+          }
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [navigate]);
+
+  const deleteSellerId = () => {
+    if (window.confirm("정말 탈퇴하시겠습니까?")) {
+      axiosApi.delete("/api/seller", {
+        headers: {
+          Authorization: `Bearer ${getAccessToken()}`,
+        },
+      });
+    }
+  };
+
+  const logout = () => {
+    if (window.confirm("로그아웃하시겠습니까?")) {
+      axiosApi.delete("/api/seller/logout", {
+        headers: {
+          Authorization: `Bearer ${getAccessToken()}`,
+        },
+      });
+      localStorage.clear();
+      navigate("/");
+    }
+  };
+
   return (
     <div className="Pages">
       <div>판매뚝딱 판매자 페이지입니다.</div>
-      {/* <StatusType /> */}
+      <div className="buttonsDiv">
+        <button onClick={() => navigate("/sellpageform")}>페이지 수정</button>
+        <button onClick={() => navigate("/userform/edit")}>
+          회원정보 수정
+        </button>
+        <button onClick={deleteSellerId}>회원 탈퇴</button>
+        <button onClick={logout}>로그아웃</button>
+      </div>
       <CardList />
     </div>
   );
