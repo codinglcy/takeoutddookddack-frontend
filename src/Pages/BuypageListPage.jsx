@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const BuypageListPage = (props) => {
   useEffect(() => {
     props.isBuyPageFunc(true);
-    props.whatPageFunc("BuyPageListPage");
+    props.whatPageFunc("BuypageListPage");
   }, [props]);
 
   return (

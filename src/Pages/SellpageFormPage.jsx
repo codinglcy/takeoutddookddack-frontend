@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const SellpageFormPage = (props) => {
   useEffect(() => {
     props.isBuyPageFunc(false);
-    props.whatPageFunc("SellPageFormPage");
+    props.whatPageFunc("SellpageFormPage");
   }, [props]);
 
   return (
