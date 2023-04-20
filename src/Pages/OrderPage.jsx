@@ -33,6 +33,7 @@ const OrderPage = (props) => {
         selectMenu={selectMenu}
         sellerId={sellerId}
         selectMenuFunc={selectMenuFunc}
+        getPageDataFunc={props.getPageDataFunc}
       />
     </div>
   );

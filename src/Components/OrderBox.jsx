@@ -69,6 +69,10 @@ const OrderBox = (props) => {
     props.selectMenuFunc(selectMenu);
   }, [selectMenu]);
 
+  useDidMountEffect(() => {
+    props.getPageDataFunc(orderInfo);
+  }, [orderInfo]);
+
   return (
     <>
       <div>주문뚝딱 주문서&주문자정보입력버튼</div>
