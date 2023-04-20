@@ -52,8 +52,8 @@ const OrderForm = (props) => {
             variant="primary"
             onClick={() => {
               handleClose();
-              orderInfo["telNum"] = document.getElementById("telNum").value;
-              orderInfo["name"] = document.getElementById("name").value;
+              orderInfo["orderTel"] = document.getElementById("telNum").value;
+              orderInfo["orderName"] = document.getElementById("name").value;
               props.parentFunc(orderInfo);
             }}
           >

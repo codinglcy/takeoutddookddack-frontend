@@ -13,8 +13,8 @@ const OrderBox = (props) => {
   const [orderInfo, setOrderInfo] = useState({
     status: "New",
     sellerId: props.sellerId,
-    telNum: "",
-    name: "",
+    orderTel: "",
+    orderName: "",
     selectMenu: [],
     totalPrice: 0,
   });
