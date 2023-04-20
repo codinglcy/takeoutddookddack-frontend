@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import CardList from "../Components/CardList";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axiosApi from "../Util/api";
 import getAccessToken from "../Util/checkAccessToken";
+import useDidMountEffect from "../Util/useDidMountEffect";
 
 const SellPage = (props) => {
+  const [isOpen, setIsOpen] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +22,12 @@ const SellPage = (props) => {
         },
       })
       .then((res) => {
-        if (!res.data.menu) {
+        const getResData = res.data;
+        if (
+          !getResData.menu ||
+          !getResData.location ||
+          !getResData.bankAccount
+        ) {
           if (
             window.confirm(
               "회원님의 가게 정보가 비어있습니다.\n채우러 가시겠습니까?."
@@ -29,9 +36,15 @@ const SellPage = (props) => {
             navigate("/sellpageform");
           }
         }
+        setIsOpen(getResData.open);
       })
       .catch((err) => console.log(err));
   }, [navigate]);
+
+  useDidMountEffect(() => {
+    props.getPageDataFunc({ isOpen: isOpen });
+    console.log(isOpen);
+  }, [isOpen]);
 
   const deleteSellerId = () => {
     if (window.confirm("정말 탈퇴하시겠습니까?")) {

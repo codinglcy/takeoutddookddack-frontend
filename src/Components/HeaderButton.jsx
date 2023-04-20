@@ -3,6 +3,7 @@ import useDidMountEffect from "../Util/useDidMountEffect";
 import "./css/HeaderButton.css";
 import { useNavigate } from "react-router-dom";
 import axiosApi from "../Util/api";
+import getAccessToken from "../Util/checkAccessToken";
 
 const HeaderButton = (props) => {
   const [getData, setGetData] = useState({});
@@ -87,12 +88,46 @@ const HeaderButton = (props) => {
         <div className="headerBtnDiv">
           <button
             onClick={() => {
-              console.log(props.whatPage);
-              console.log("SellPage");
-              console.log(getData);
+              const token = getAccessToken();
+
+              const api = () => {
+                axiosApi.patch(
+                  `/api/shop/open`,
+                  {
+                    isOpen: !getData.isOpen,
+                  },
+                  {
+                    headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
+                  }
+                );
+              };
+
+              if (getData.isOpen) {
+                if (window.confirm("오늘의 영업을 종료하시겠습니까?")) {
+                  if (
+                    window.confirm(
+                      "영업을 종료하면 현재 남아있는 주문을 모두 삭제합니다.\n영업을 종료하시겠습까?"
+                    )
+                  ) {
+                    api();
+                    axiosApi.delete("/api/order/sellerId", {
+                      headers: {
+                        Authorization: `Bearer ${token}`,
+                      },
+                    });
+                    window.location.reload();
+                  }
+                }
+              } else {
+                alert("영업을 시작합니다.");
+                api();
+                window.location.reload();
+              }
             }}
           >
-            포장뚝딱 헤더버튼
+            {getData.isOpen ? "영업 종료" : "영업 시작"}
           </button>
         </div>
       );
