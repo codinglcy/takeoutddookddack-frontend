@@ -21,6 +21,10 @@ const BuyPage = (props) => {
       .get(`/api/shop/order?sellerId=${sellerId}`)
       .then((res) => {
         setShopInfo(res.data);
+        props.getPageDataFunc({
+          isOpen: res.data.open,
+          sellerId: sellerId,
+        });
       })
       .catch((err) => {
         console.log(err);
