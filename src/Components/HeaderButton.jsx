@@ -187,17 +187,89 @@ const HeaderButton = (props) => {
       );
 
     case "UserFormPage":
+      const checkEmail = () => {
+        let correct_email = // eslint-disable-next-line
+          /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+        if (!correct_email.test(getData.email)) {
+          return false;
+        } else {
+          return true;
+        }
+      };
+
+      const bodyData = {
+        sellerId: getData.sellerId,
+        pwd: getData.pwd,
+        email: getData.email,
+        name: getData.name,
+      };
+
       return (
         <div className="headerBtnDiv">
-          <button
-            onClick={() => {
-              console.log(props.whatPage);
-              console.log("UserFormPage");
-              console.log(getData);
-            }}
-          >
-            포장뚝딱 헤더버튼
-          </button>
+          {getData.newedit === "new" ? (
+            <button
+              onClick={() => {
+                if (
+                  !getData.sellerId ||
+                  !getData.pwd ||
+                  !getData.email ||
+                  !getData.name
+                ) {
+                  alert("빈 칸을 모두 채워주세요.");
+                } else if (!getData.idCheck) {
+                  alert("아이디 중복 확인을 진행해주세요.");
+                } else if (!getData.pwdCheck) {
+                  alert(
+                    "비밀번호란과 비밀번호 확인란에 입력한 내용이 다릅니다."
+                  );
+                } else if (!checkEmail()) {
+                  alert("이메일을 다시 확인해 주세요.");
+                } else {
+                  axiosApi.post("/api/seller", bodyData);
+                  navigate("/");
+                }
+              }}
+            >
+              가입 완료
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                const token = getAccessToken();
+
+                if (!getData.sellerId || !getData.email || !getData.name) {
+                  alert("빈 칸을 모두 채워주세요.");
+                } else if (!getData.idCheck) {
+                  alert("아이디 중복 확인을 진행해주세요.");
+                } else if (!getData.pwdCheck) {
+                  alert(
+                    "비밀번호란과 비밀번호 확인란에 입력한 내용이 다릅니다."
+                  );
+                } else if (!checkEmail()) {
+                  alert("이메일을 다시 확인해 주세요.");
+                } else {
+                  axiosApi
+                    .patch("/api/seller", bodyData, {
+                      headers: {
+                        Authorization: `Bearer ${token}`,
+                      },
+                    })
+                    .then((res) => {
+                      if (res.data) {
+                        localStorage.setItem("accessToken", res.data);
+                      }
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                  navigate("/sellPage");
+                }
+              }}
+            >
+              수정 완료
+            </button>
+          )}
         </div>
       );
 
