@@ -30,7 +30,7 @@ const SellPage = (props) => {
         ) {
           if (
             window.confirm(
-              "회원님의 가게 정보가 비어있습니다.\n채우러 가시겠습니까?."
+              "회원님의 가게 정보가 비어있습니다.\n채우러 가시겠습니까?"
             )
           ) {
             navigate("/sellpageform");
