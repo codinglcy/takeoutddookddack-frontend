@@ -10,21 +10,23 @@ import { InputGroup } from "react-bootstrap";
 import axiosApi from "../Util/api";
 import getAccessToken from "../Util/checkAccessToken";
 import useDidMountEffect from "../Util/useDidMountEffect";
+import debounceFunc from "../Util/debounce";
 
-const SellPageForm = () => {
+const SellPageForm = (props) => {
   const [show, setShow] = useState(false);
   const [accessToken, setAccessToken] = useState();
   const [sellerShopInfo, setSellerShopInfo] = useState({});
   const [shopMenu, setShopMenu] = useState([]);
   const [shopLocation, setShopLocation] = useState("");
   const [shopBankAccount, setShopBankAccount] = useState("");
+  const [shopData, setShopData] = useState({
+    id: "",
+    location: ["", ""],
+    bankAccount: ["", "", ""],
+    menu: false,
+  });
 
-  useEffect(() => {
-    let token = getAccessToken();
-    setAccessToken(token);
-  }, []);
-
-  useDidMountEffect(() => {
+  const doApi = () => {
     axiosApi
       .get("/api/shop", {
         headers: {
@@ -32,15 +34,80 @@ const SellPageForm = () => {
         },
       })
       .then((res) => {
+        console.log(res.data);
         setSellerShopInfo(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        setAccessToken(getAccessToken());
       });
+  };
+
+  const changeValueFunc = debounceFunc((what, index, value) => {
+    setShopData((current) => {
+      let newData = { ...current };
+      let newList = [...current[what]];
+      console.log(newList);
+
+      newList[index] = value;
+      newData[what] = newList;
+      return newData;
+    });
+  }, 1000);
+
+  useEffect(() => {
+    setAccessToken(getAccessToken());
+  }, []);
+
+  useDidMountEffect(() => {
+    doApi();
   }, [accessToken]);
 
   useDidMountEffect(() => {
     setShopMenu(sellerShopInfo.menu);
     setShopLocation(sellerShopInfo.location);
     setShopBankAccount(sellerShopInfo.bankAccount);
+    setShopData((current) => {
+      let newData = { ...current };
+      let location = sellerShopInfo.location
+        ? [
+            sellerShopInfo.location.split(" ").slice(0, -1).join(" "),
+            sellerShopInfo.location.split(" ").slice(-1).join(""),
+          ]
+        : ["", ""];
+      let bankAccount = sellerShopInfo.bankAccount
+        ? [
+            sellerShopInfo.bankAccount.split(" ")[0],
+            sellerShopInfo.bankAccount.split(" ")[1],
+            sellerShopInfo.bankAccount.split(" ")[2],
+          ]
+        : ["", "", ""];
+      newData["location"] = location;
+      newData["bankAccount"] = bankAccount;
+      newData["id"] = sellerShopInfo.id;
+      return newData;
+    });
   }, [sellerShopInfo]);
+
+  useDidMountEffect(() => {
+    if (shopMenu.length < 1) {
+      setShopData((current) => {
+        let newData = { ...current };
+        newData["menu"] = false;
+        return newData;
+      });
+    } else {
+      setShopData((current) => {
+        let newData = { ...current };
+        newData["menu"] = true;
+        return newData;
+      });
+    }
+  }, [shopMenu]);
+
+  useDidMountEffect(() => {
+    props.getPageDataFunc(shopData);
+  }, [shopData]);
 
   return (
     <>
@@ -155,6 +222,9 @@ const SellPageForm = () => {
                 .split(" ")
                 .slice(0, -1)
                 .join(" ")}
+              onChange={(e) => {
+                changeValueFunc("location", 0, e.target.value);
+              }}
             />
 
             <Button
@@ -181,6 +251,9 @@ const SellPageForm = () => {
             id="addressMore"
             placeholder="상세 (ex: 앞 / 맞은편)"
             defaultValue={(shopLocation || "").split(" ").slice(-1)}
+            onChange={(e) => {
+              changeValueFunc("location", 1, e.target.value);
+            }}
           />
         </Col>
       </Form.Group>
@@ -195,6 +268,9 @@ const SellPageForm = () => {
             id="bank"
             placeholder="은행"
             defaultValue={(shopBankAccount || "").split(" ").slice(0)}
+            onChange={(e) => {
+              changeValueFunc("bankAccount", 0, e.target.value);
+            }}
           />
         </Col>
         <Col sm="4">
@@ -203,6 +279,9 @@ const SellPageForm = () => {
             id="accountNum"
             placeholder="계좌번호"
             defaultValue={(shopBankAccount || "").split(" ").slice(1, 2)}
+            onChange={(e) => {
+              changeValueFunc("bankAccount", 1, e.target.value);
+            }}
           />
         </Col>
         <Col sm="2">
@@ -211,6 +290,9 @@ const SellPageForm = () => {
             id="accountName"
             placeholder="예금주명"
             defaultValue={(shopBankAccount || "").split(" ").slice(2, 3)}
+            onChange={(e) => {
+              changeValueFunc("bankAccount", 2, e.target.value);
+            }}
           />
         </Col>
       </Form.Group>

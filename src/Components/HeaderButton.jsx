@@ -133,16 +133,55 @@ const HeaderButton = (props) => {
       );
 
     case "SellpageFormPage":
+      const alertFunc = () => {
+        if (!getData.menu) {
+          alert("가게의 메뉴를 입력해주세요.");
+        } else if (!getData.location[0] || !getData.location[1]) {
+          alert(
+            "가게 위치에 대해 입력해주세요.\n주변의 건물 주소 / 상세 위치 순서입니다."
+          );
+        } else if (
+          !getData.bankAccount[0] ||
+          !getData.bankAccount[1] ||
+          !getData.bankAccount[2]
+        ) {
+          alert(
+            "입금 받을 계좌의 빈칸을 채워주세요.\n은행 / 계좌번호 / 예금주명 순서입니다."
+          );
+        }
+      };
       return (
         <div className="headerBtnDiv">
           <button
             onClick={() => {
-              console.log(props.whatPage);
-              console.log("SellpageFormPage");
-              console.log(getData);
+              const token = getAccessToken();
+              if (
+                getData.menu &&
+                getData.location[0] &&
+                getData.location[1] &&
+                getData.bankAccount[0] &&
+                getData.bankAccount[1] &&
+                getData.bankAccount[2]
+              ) {
+                axiosApi.patch(
+                  "/api/shop",
+                  {
+                    id: getData.id,
+                    location: getData.location.join(" "),
+                    bankAccount: getData.bankAccount.join(" "),
+                  },
+                  {
+                    headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
+                  }
+                );
+              } else {
+                alertFunc();
+              }
             }}
           >
-            포장뚝딱 헤더버튼
+            수정 완료
           </button>
         </div>
       );
