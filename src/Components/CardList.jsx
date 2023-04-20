@@ -28,7 +28,12 @@ const CardList = () => {
       })
       .catch((err) => {
         console.log(err);
+        takeToken();
       });
+  };
+
+  const takeToken = () => {
+    setToken(getAccessToken());
   };
 
   useEffect(() => {
