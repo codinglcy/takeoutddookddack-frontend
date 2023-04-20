@@ -37,12 +37,28 @@ const SellingSituation = (props) => {
   };
 
   useEffect(() => {
-    getOrders();
-  });
+    axiosApi
+      .get(`/api/order/shop?sellerId=${sellerId}`)
+      .then((res) => {
+        const orderBy = ["Check", "New", "Ready"];
+        let data = res.data;
+        data.sort(
+          (a, b) =>
+            orderBy.indexOf(a.status) - orderBy.indexOf(b.status) ||
+            a.createdAt - b.createdAt
+        );
+        setOrders(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [sellerId]);
 
   useDidMountEffect(() => {
     getOrders();
-    setStatusGroup(props.status);
+    setTimeout(() => {
+      setStatusGroup(props.status);
+    }, 100);
   }, [props.status]);
 
   return (
