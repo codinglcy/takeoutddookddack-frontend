@@ -9,6 +9,10 @@ const HeaderButton = (props) => {
     setGetData({});
   }, [props.whatPage]);
 
+  useDidMountEffect(() => {
+    setGetData(props.getPageData);
+  }, [props.getPageData]);
+
   switch (props.whatPage) {
     case "BuyPage":
       return (
