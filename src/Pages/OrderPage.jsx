@@ -18,6 +18,7 @@ const OrderPage = (props) => {
 
   useEffect(() => {
     props.isBuyPageFunc(true);
+    props.whatPageFunc("OrderPage");
   }, [props]);
 
   return (

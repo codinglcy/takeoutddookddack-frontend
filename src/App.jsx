@@ -17,6 +17,8 @@ function App() {
   const [isBuyPage, setIsBuyPage] = useState(true);
   const [loginShow, setLoginShow] = useState(false);
   const [pwdEmailShow, setPwdEmailShow] = useState(false);
+  const [whatPage, setWhatPage] = useState("");
+  const [getPageData, setGetPageData] = useState({});
   const navigate = useNavigate();
 
   const loginShowFunc = (show) => {
@@ -27,6 +29,12 @@ function App() {
   };
   const pwdEmailShowFunc = (truefalse) => {
     setPwdEmailShow(truefalse);
+  };
+  const whatPageFunc = (page) => {
+    setWhatPage(page);
+  };
+  const getPageDataFunc = (pageData) => {
+    setGetPageData(pageData);
   };
 
   return (
@@ -73,33 +81,68 @@ function App() {
           <div className="App-title">포장뚝딱</div>
         </a>
 
-        <HeaderButton />
+        <HeaderButton whatPage={whatPage} getPageData={getPageData} />
       </header>
 
       <Routes>
         <Route
           path="/"
-          element={<BuypageListPage isBuyPageFunc={isBuyPageFunc} />}
+          element={
+            <BuypageListPage
+              isBuyPageFunc={isBuyPageFunc}
+              whatPageFunc={whatPageFunc}
+            />
+          }
         ></Route>
         <Route
           path="/buypage/:sellerId"
-          element={<BuyPage isBuyPageFunc={isBuyPageFunc} />}
+          element={
+            <BuyPage
+              isBuyPageFunc={isBuyPageFunc}
+              whatPageFunc={whatPageFunc}
+              getPageDataFunc={getPageDataFunc}
+            />
+          }
         ></Route>
         <Route
           path="/orderpage/:sellerId"
-          element={<OrderPage isBuyPageFunc={isBuyPageFunc} />}
+          element={
+            <OrderPage
+              isBuyPageFunc={isBuyPageFunc}
+              whatPageFunc={whatPageFunc}
+              getPageDataFunc={getPageDataFunc}
+            />
+          }
         ></Route>
         <Route
           path="/sellpage"
-          element={<SellPage isBuyPageFunc={isBuyPageFunc} />}
+          element={
+            <SellPage
+              isBuyPageFunc={isBuyPageFunc}
+              whatPageFunc={whatPageFunc}
+              getPageDataFunc={getPageDataFunc}
+            />
+          }
         ></Route>
         <Route
           path="/sellpageform"
-          element={<SellpageFormPage isBuyPageFunc={isBuyPageFunc} />}
+          element={
+            <SellpageFormPage
+              isBuyPageFunc={isBuyPageFunc}
+              whatPageFunc={whatPageFunc}
+              getPageDataFunc={getPageDataFunc}
+            />
+          }
         ></Route>
         <Route
           path="/userform/:newedit"
-          element={<UserFormPage isBuyPageFunc={isBuyPageFunc} />}
+          element={
+            <UserFormPage
+              isBuyPageFunc={isBuyPageFunc}
+              whatPageFunc={whatPageFunc}
+              getPageDataFunc={getPageDataFunc}
+            />
+          }
         ></Route>
       </Routes>
     </>

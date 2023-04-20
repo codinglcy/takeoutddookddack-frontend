@@ -9,6 +9,7 @@ const SellPage = (props) => {
 
   useEffect(() => {
     props.isBuyPageFunc(false);
+    props.whatPageFunc("SellPage");
   }, [props]);
 
   useEffect(() => {

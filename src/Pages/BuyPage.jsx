@@ -16,6 +16,7 @@ const BuyPage = (props) => {
 
   useEffect(() => {
     props.isBuyPageFunc(true);
+    props.whatPageFunc("BuyPage");
     axiosApi
       .get(`/api/shop/order?sellerId=${sellerId}`)
       .then((res) => {

@@ -1,9 +1,11 @@
 import "./css/HeaderButton.css";
 
-const HeaderButton = () => {
+const HeaderButton = (props) => {
   return (
     <>
-      <div>포장뚝딱 헤더버튼</div>
+      <button onClick={() => console.log(props.whatPage)}>
+        포장뚝딱 헤더버튼
+      </button>
     </>
   );
 };

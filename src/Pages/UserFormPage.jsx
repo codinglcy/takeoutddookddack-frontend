@@ -8,6 +8,7 @@ const UserFormPage = (props) => {
 
   useEffect(() => {
     props.isBuyPageFunc(false);
+    props.whatPageFunc("UserFormPage");
   }, [props]);
 
   return (
