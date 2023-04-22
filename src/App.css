@@ -36,13 +36,15 @@
 }
 
 .Pages {
-  height: calc(100hv - 130px);
+  height: calc(100% - 100px);
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .PageButtons {
   position: absolute;
-  /* display: flex; */
+  display: flex;
 
   top: 50%;
   left: 20%;
@@ -50,7 +52,7 @@
 
   width: 100px;
   height: 70px;
-  /* margin-top: 5px; */
+  margin-top: 5px;
 }
 
 .SellPageButton {
@@ -99,4 +101,28 @@
   font-weight: 300;
   color: #fdb055;
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.headerBtnDiv {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  text-align: center;
+}
+
+.headerBtnDiv button {
+  border: none;
+  background: rgba(253, 176, 85, 0.7);
+  border-radius: 20px;
+
+  width: 180px;
+  height: 60px;
+
+  align-items: center;
+  text-align: center;
+  color: #606060;
+  font-size: 20px;
+  font-weight: 300;
 }
