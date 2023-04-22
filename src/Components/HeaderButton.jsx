@@ -176,6 +176,7 @@ const HeaderButton = (props) => {
                     },
                   }
                 );
+                navigate("/sellPage");
               } else {
                 alertFunc();
               }
