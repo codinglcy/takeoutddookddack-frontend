@@ -18,15 +18,15 @@ const BuypageList = () => {
   };
 
   return (
-    <>
-      <div>가게 목록</div>
+    <div className="BuypageListDiv">
+      <div className="BuypageListTitle">가게 목록</div>
       <SearchByAddress shopListFunc={shopListFunc} />
-      <div className="listBox">
+      <div className="pagelistBox">
         <table className="table">
           <colgroup>
-            <col width="150px" />
-            <col width="80px" />
-            <col width="100px" />
+            <col width="370px" />
+            <col width="120px" />
+            <col width="110px" />
           </colgroup>
           <thead>
             <tr>
@@ -51,7 +51,7 @@ const BuypageList = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

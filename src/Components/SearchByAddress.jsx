@@ -77,7 +77,7 @@ const SearchByAddress = ({ shopListFunc }) => {
   };
 
   return (
-    <div>
+    <div className="SearchByAddressDiv">
       <select
         name="시/도"
         defaultValue={first.name}
@@ -158,6 +158,7 @@ const SearchByAddress = ({ shopListFunc }) => {
         id="button-addon2"
         className="searchBtn"
         onClick={doSearch}
+        style={{ height: "28px", padding: "2px 8px", marginTop: "-4px" }}
       >
         검색
       </Button>
