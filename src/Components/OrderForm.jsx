@@ -22,12 +22,12 @@ const OrderForm = (props) => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>주문자 정보 입력</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FloatingLabel
             controlId="telNum"
-            label="주문자 전화번호"
+            label="주문자 전화번호 ( -을 포함해서 적어주세요. 예시: 000-0000 )"
             className="mb-3"
           >
             <Form.Control
