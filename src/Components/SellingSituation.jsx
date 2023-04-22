@@ -28,11 +28,11 @@ const SellingSituation = (props) => {
 
   const statusShow = (status) => {
     if (status === "New") {
-      return <div>새주문</div>;
+      return <div className="newDiv">새주문</div>;
     } else if (status === "Check") {
-      return <div>입금확인</div>;
+      return <div className="checkDiv">입금확인</div>;
     } else {
-      return <div>준비완료</div>;
+      return <div className="readyDiv">준비완료</div>;
     }
   };
 
@@ -62,60 +62,67 @@ const SellingSituation = (props) => {
   }, [props.status]);
 
   return (
-    <>
-      <div>주문뚝딱 가게판매현황</div>
+    <div className="sellingSituationDiv">
       <div className="situation">
-        <div>영업 현황</div>
-        <table className="situationTable">
-          <colgroup>
-            <col width="25%" />
-            <col width="*" />
-            <col width="25%" />
-          </colgroup>
-          <thead>
-            <tr>
-              <th>{"주문자 전화번호\n뒷자리"}</th>
-              <th>주문 내용</th>
-              <th>진행 상태</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders &&
-              (statusGroup === "All"
-                ? orders
-                : orders.filter((order) => order.status === statusGroup)
-              ).map((order, idx) => {
-                return (
-                  <tr key={idx}>
-                    <td>
-                      {
-                        order.orderTel.split("-")[
-                          order.orderTel.split("-").length - 1
-                        ]
-                      }
-                    </td>
-                    <td>
-                      {order.selectMenu.length === 1
-                        ? order.selectMenu[0].item
-                        : order.selectMenu.length === 2
-                        ? order.selectMenu[0].item +
-                          ", " +
-                          order.selectMenu[1].item
-                        : order.selectMenu[0].item +
-                          ", " +
-                          order.selectMenu[1].item +
-                          " 외 " +
-                          (order.selectMenu.length - 2) +
-                          "종"}
-                    </td>
-                    <td>{statusShow(order.status)}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+        <div className="situationTitle">영업 현황</div>
+        <div className="situationTableDiv">
+          <table className="situationTable">
+            <colgroup>
+              <col width="25%" />
+              <col width="*" />
+              <col width="25%" />
+            </colgroup>
+            <thead>
+              <tr
+                style={{
+                  position: "sticky",
+                  top: "0",
+                  backgroundColor: "white",
+                }}
+              >
+                <th>{"주문자 전화번호\n뒷자리"}</th>
+                <th>주문 내용</th>
+                <th>진행 상태</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders &&
+                (statusGroup === "All"
+                  ? orders
+                  : orders.filter((order) => order.status === statusGroup)
+                ).map((order, idx) => {
+                  return (
+                    <tr key={idx}>
+                      <td>
+                        {
+                          order.orderTel.split("-")[
+                            order.orderTel.split("-").length - 1
+                          ]
+                        }
+                      </td>
+                      <td>
+                        {order.selectMenu.length === 1
+                          ? order.selectMenu[0].item
+                          : order.selectMenu.length === 2
+                          ? order.selectMenu[0].item +
+                            ", " +
+                            order.selectMenu[1].item
+                          : order.selectMenu[0].item +
+                            ", " +
+                            order.selectMenu[1].item +
+                            " 외 " +
+                            (order.selectMenu.length - 2) +
+                            "종"}
+                      </td>
+                      <td>{statusShow(order.status)}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

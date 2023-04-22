@@ -1,10 +1,85 @@
+.sellingSituationDiv {
+  margin-top: -40px;
+  /* padding-left: 21%;
+  padding-right: 21%; */
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  /* align-items: center; */
+  position: relative;
+}
+
 .situation {
   width: 600px;
   text-align: center;
 }
 
+.situationTitle {
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.situationTableDiv {
+  width: 100%;
+  white-space: pre-wrap;
+  border: solid 1px;
+  border-radius: 3px;
+  max-height: 330px;
+
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.situationTableDiv::-webkit-scrollbar {
+  display: none;
+}
+
 .situationTable {
   table-layout: fixed;
   width: 100%;
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
+}
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 4px 0px;
+}
+
+.newDiv {
+  background: rgba(154, 188, 255, 0.7);
+
+  width: 80px;
+  border-radius: 18px;
+  text-align: center;
+  padding: 5px;
+  margin: 0px 23%;
+
+  color: #606060;
+}
+
+.checkDiv {
+  background: rgba(129, 223, 114, 0.7);
+
+  width: 80px;
+  border-radius: 18px;
+  text-align: center;
+  padding: 5px;
+  margin: 0px 23%;
+
+  color: #606060;
+}
+
+.readyDiv {
+  background: rgba(253, 176, 85, 0.7);
+
+  width: 80px;
+  border-radius: 18px;
+  text-align: center;
+  padding: 5px;
+  margin: 0px 23%;
+
+  color: #606060;
 }

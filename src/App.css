@@ -37,8 +37,8 @@
 
 .Pages {
   height: calc(100% - 100px);
-  position: relative;
-  display: flex;
+  /* position: relative; */
+  /* display: flex; */
   justify-content: center;
 }
 
