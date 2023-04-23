@@ -74,41 +74,47 @@ const OrderBox = (props) => {
   }, [orderInfo]);
 
   return (
-    <>
-      <div>주문뚝딱 주문서&주문자정보입력버튼</div>
-
+    <div className="orderBoxComponentDiv">
       <div className="orderBox">
-        <div className="menuTitle">주문서</div>
-        <div className="listBox">
+        <div className="orderBoxTitle">주문서</div>
+        <div className="selectMenulistBox">
           {selectMenu &&
             selectMenu.map((menu, idx) => {
               return (
-                <div key={idx} id={menu.item}>
+                <div key={idx} id={menu.item} className="selectMenuDiv">
                   <div id={`${menu.item}-idx`} hidden={true}>
                     {idx}
                   </div>
-                  <div id={`${menu.item}-item`}>{menu.item}</div>
+                  <div id={`${menu.item}-item`} className="selectMenuItem">
+                    {menu.item}
+                  </div>
                   <div id={`${menu.item}-price`} hidden={true}>
                     {menu.price}
                   </div>
                   <div className="quantityPM">
                     <button
-                      className="minusBtn"
+                      className="minusplusBtn"
                       onClick={() => minusQuantity(idx)}
                     >
-                      -
+                      <div className="minusplus">-</div>
                     </button>
-                    <div id={`${menu.item}-quantity`}>{menu.quantity}</div>
+                    <div
+                      id={`${menu.item}-quantity`}
+                      className="selectMenuQuantity"
+                    >
+                      {menu.quantity}
+                    </div>
                     <button
-                      className="plusBtn"
+                      className="minusplusBtn"
                       onClick={() => plusQuantity(idx)}
                     >
-                      +
+                      <div className="minusplus">+</div>
                     </button>
                   </div>
                   <button
                     id={`${menu.item}-delete`}
                     onClick={() => deleteSelectMenu(idx)}
+                    className="selectMenuDeleteBtn"
                   >
                     x
                   </button>
@@ -116,13 +122,18 @@ const OrderBox = (props) => {
               );
             })}
         </div>
-        <div>
+        <div style={{ width: "100%", textAlign: "center" }}>
+          ----------------------------------------
+        </div>
+        <div className="totalPriceDiv">
           <div>총 금액:</div>
           <div>{totalPrice} 원</div>
         </div>
       </div>
 
-      <button onClick={handleShow}>주문자 정보 입력</button>
+      <button onClick={handleShow} className="orderPersonInfoBtn">
+        주문자 정보 입력
+      </button>
       <OrderForm
         show={show}
         setShow={setShow}
@@ -130,15 +141,15 @@ const OrderBox = (props) => {
         parentFunc={parentFunc}
       />
 
-      <button
+      {/* <button
         onClick={() => {
           console.log(orderInfo);
           console.log(props.selectMenu);
         }}
       >
         정보보기
-      </button>
-    </>
+      </button> */}
+    </div>
   );
 };
 

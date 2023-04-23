@@ -1,8 +1,20 @@
+.menuComponentDiv {
+  position: relative;
+  width: 370px;
+  height: 400px;
+  margin-top: 5%;
+  /* margin-right: 5%; */
+  border: solid 1px;
+  border-radius: 3px;
+}
+
 .menuTitle {
   text-align: center;
   align-items: center;
-  font-size: large;
+  font-size: 25px;
   font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .menuBox {
@@ -13,18 +25,19 @@
   height: 400px;
 }
 
-.listBox {
-  max-width: 370px;
-  max-height: 350px;
+.menulistBox {
+  width: 370px;
+  height: 345px;
   overflow: auto;
-  /* background-color: blueviolet; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.menulistBox::-webkit-scrollbar {
+  display: none;
 }
 
-.table {
+.menulistBox .table {
   table-layout: fixed;
-  max-width: 370px;
-  max-height: 100%;
-  /* text-align: center; */
 }
 
 td {

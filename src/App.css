@@ -103,21 +103,31 @@
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
 
-.headerBtnDiv {
+.HeaderBtnDiv {
   position: absolute;
   top: 50%;
-  right: 5%;
+  left: 80%;
+  /* right: 10%; */
   transform: translate(-50%, -50%);
   align-items: center;
   text-align: center;
 }
+
+/* .headerBtnDiv {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  text-align: center;
+} */
 
 .headerBtnDiv button {
   border: none;
   background: rgba(253, 176, 85, 0.7);
   border-radius: 20px;
 
-  width: 180px;
+  width: 170px;
   height: 60px;
 
   align-items: center;

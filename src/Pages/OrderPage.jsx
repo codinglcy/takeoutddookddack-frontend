@@ -19,11 +19,10 @@ const OrderPage = (props) => {
   useEffect(() => {
     props.isBuyPageFunc(true);
     props.whatPageFunc("OrderPage");
-  }, [props]);
+  });
 
   return (
     <div className="Pages">
-      <div>주문뚝딱 주문서 작성 페이지입니다.</div>
       <Menu
         sellerId={sellerId}
         selectMenuPlusFunc={selectMenuPlusFunc}

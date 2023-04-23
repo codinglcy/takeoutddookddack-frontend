@@ -77,11 +77,14 @@ function App() {
             </button>
           </Link>
         </div>
+
         <a href="http://localhost:3000/">
           <div className="App-title">포장뚝딱</div>
         </a>
 
-        <HeaderButton whatPage={whatPage} getPageData={getPageData} />
+        <div className="HeaderBtnDiv">
+          <HeaderButton whatPage={whatPage} getPageData={getPageData} />
+        </div>
       </header>
 
       <Routes>
