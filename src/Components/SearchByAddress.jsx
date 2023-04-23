@@ -65,7 +65,9 @@ const SearchByAddress = ({ shopListFunc }) => {
       firstSlice = first.name.slice(0, 1) + first.name.slice(2, 3);
       console.log(firstSlice);
     }
-
+    console.log(
+      `/api/shop/location?first=${firstSlice}&second=${second.name}&third=${third.name}`
+    );
     axiosApi
       .get(
         `/api/shop/location?first=${firstSlice}&second=${second.name}&third=${third.name}`
@@ -87,7 +89,15 @@ const SearchByAddress = ({ shopListFunc }) => {
             name: e.target.options[e.target.selectedIndex].text,
           });
           setSecondList();
+          setSecond({
+            code: "",
+            name: "",
+          });
           setThirdList();
+          setThird({
+            code: "",
+            name: "",
+          });
         }}
       >
         <option value="" key="none" hidden>
@@ -110,6 +120,11 @@ const SearchByAddress = ({ shopListFunc }) => {
           setSecond({
             code: e.target.value.slice(0, 5),
             name: e.target.options[e.target.selectedIndex].text,
+          });
+          setThirdList();
+          setThird({
+            code: "",
+            name: "",
           });
         }}
       >

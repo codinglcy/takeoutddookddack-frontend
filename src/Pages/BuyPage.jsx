@@ -29,14 +29,11 @@ const BuyPage = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [props, sellerId]);
+  }, []);
 
   return (
     <div className="Pages">
-      <ShopInfo
-        location={shopInfo.location}
-        bankAccount={shopInfo.bankAccount}
-      />
+      <ShopInfo info={shopInfo} />
       <SellingSituation sellerId={sellerId} status={status} />
       <StatusType statusFunc={statusFunc} />
     </div>

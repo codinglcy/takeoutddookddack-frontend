@@ -3,18 +3,19 @@
   display: flex;
   /* width: 84%; */
   height: 85px;
-  padding: 10px 7% 0px 7%;
+  padding: 10px 5% 0px 5%;
   /* padding-left: 8%;
   padding-top: 10px; */
   color: #606060;
+  white-space: pre-line;
 }
 
 .shopLocationDiv {
   background: rgba(253, 176, 85, 0.7);
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  width: 330px;
-  height: 75px;
+  width: 340px;
+  height: 78px;
   padding-top: 5px;
 
   position: absolute;
@@ -29,15 +30,15 @@
   background: rgba(253, 176, 85, 0.7);
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  width: 330px;
-  height: 75px;
+  width: 340px;
+  height: 78px;
   padding-top: 5px;
 
   position: absolute;
   /* top: 10%;
   right: 20%;
   position: right; */
-  right: 7%;
+  right: 5%;
   /* transform: translate(-50%, -50%); */
 
   text-align: center;
