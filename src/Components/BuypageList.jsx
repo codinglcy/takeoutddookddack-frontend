@@ -40,7 +40,10 @@ const BuypageList = () => {
               shopList.map((shop) => {
                 return (
                   <tr key={shop.id}>
-                    <td>{shop.location}</td>
+                    <td>
+                      {shop.location &&
+                        `${shop.location.address} ${shop.location.more}`}
+                    </td>
                     <td>{shop.open ? "영업중" : "준비중"}</td>
                     <td>
                       <a href={shop.shopUrl}>{shop.shopUrl}</a>

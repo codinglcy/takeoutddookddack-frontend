@@ -1,12 +1,12 @@
 .sellingSituationDiv {
-  margin-top: -40px;
+  margin-top: 45px;
   /* padding-left: 21%;
   padding-right: 21%; */
   display: flex;
   justify-content: center;
   height: 400px;
   /* align-items: center; */
-  position: relative;
+  position: absolute;
 }
 
 .situation {

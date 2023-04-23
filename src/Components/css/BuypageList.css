@@ -1,16 +1,19 @@
 .BuypageListDiv {
-  position: absolute;
-  top: 40%;
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
-  align-items: center;
+  position: relative;
+  /* clear: both; */
+  /* justify-items: center; */
+  /* align-items: center; */
   text-align: center;
-  width: 600px;
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 .BuypageListTitle {
+  /* position: absolute; */
   font-size: 25px;
   font-weight: bold;
+  padding: 5px;
+  margin: 5px;
 }
 
 .SearchByAddressDiv {
@@ -19,13 +22,15 @@
 }
 
 .pagelistBox {
-  position: absolute;
-  /* left: 10%; */
+  /* position: absolute; */
+
   border: solid 1px;
   border-radius: 5px;
-  width: 100%;
-  height: 350px;
+  width: 600px;
+  height: 330px;
   overflow: auto;
+  text-align: center;
+  justify-items: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -35,6 +40,7 @@
 
 .pagelistBox .table {
   table-layout: fixed;
+  /* text-align: center; */
 }
 
 td {
