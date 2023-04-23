@@ -167,8 +167,15 @@ const HeaderButton = (props) => {
                   "/api/shop",
                   {
                     id: getData.id,
-                    location: getData.location.join(" "),
-                    bankAccount: getData.bankAccount.join(" "),
+                    location: {
+                      address: getData.location[0],
+                      more: getData.location[1],
+                    },
+                    bankAccount: {
+                      bank: getData.bankAccount[0],
+                      accountNum: getData.bankAccount[1],
+                      name: getData.bankAccount[2],
+                    },
                   },
                   {
                     headers: {

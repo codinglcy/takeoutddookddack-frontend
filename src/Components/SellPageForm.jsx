@@ -17,8 +17,8 @@ const SellPageForm = (props) => {
   const [accessToken, setAccessToken] = useState();
   const [sellerShopInfo, setSellerShopInfo] = useState({});
   const [shopMenu, setShopMenu] = useState([]);
-  const [shopLocation, setShopLocation] = useState("");
-  const [shopBankAccount, setShopBankAccount] = useState("");
+  const [shopLocation, setShopLocation] = useState({});
+  const [shopBankAccount, setShopBankAccount] = useState({});
   const [shopData, setShopData] = useState({
     id: "",
     location: ["", ""],
@@ -64,24 +64,24 @@ const SellPageForm = (props) => {
   }, [accessToken]);
 
   useDidMountEffect(() => {
+    let location = sellerShopInfo.location
+      ? [sellerShopInfo.location.address, sellerShopInfo.location.more]
+      : ["", ""];
+    let bankAccount = sellerShopInfo.bankAccount
+      ? [
+          sellerShopInfo.bankAccount.bank,
+          sellerShopInfo.bankAccount.accountNum,
+          sellerShopInfo.bankAccount.name,
+        ]
+      : ["", "", ""];
+
     setShopMenu(sellerShopInfo.menu);
-    setShopLocation(sellerShopInfo.location);
-    setShopBankAccount(sellerShopInfo.bankAccount);
+    setShopLocation(location);
+    setShopBankAccount(bankAccount);
+
     setShopData((current) => {
       let newData = { ...current };
-      let location = sellerShopInfo.location
-        ? [
-            sellerShopInfo.location.split(" ").slice(0, -1).join(" "),
-            sellerShopInfo.location.split(" ").slice(-1).join(""),
-          ]
-        : ["", ""];
-      let bankAccount = sellerShopInfo.bankAccount
-        ? [
-            sellerShopInfo.bankAccount.split(" ")[0],
-            sellerShopInfo.bankAccount.split(" ")[1],
-            sellerShopInfo.bankAccount.split(" ")[2],
-          ]
-        : ["", "", ""];
+
       newData["location"] = location;
       newData["bankAccount"] = bankAccount;
       newData["id"] = sellerShopInfo.id;
@@ -218,10 +218,7 @@ const SellPageForm = (props) => {
               type="text"
               readOnly
               placeholder="근처 건물 주소"
-              defaultValue={(shopLocation || "")
-                .split(" ")
-                .slice(0, -1)
-                .join(" ")}
+              defaultValue={shopLocation[0]}
               onChange={(e) => {
                 changeValueFunc("location", 0, e.target.value);
               }}
@@ -250,7 +247,7 @@ const SellPageForm = (props) => {
             type="text"
             id="addressMore"
             placeholder="상세 (ex: 앞 / 맞은편)"
-            defaultValue={(shopLocation || "").split(" ").slice(-1)}
+            defaultValue={shopLocation[1]}
             onChange={(e) => {
               changeValueFunc("location", 1, e.target.value);
             }}
@@ -267,7 +264,7 @@ const SellPageForm = (props) => {
             type="text"
             id="bank"
             placeholder="은행"
-            defaultValue={(shopBankAccount || "").split(" ").slice(0)}
+            defaultValue={shopBankAccount[0]}
             onChange={(e) => {
               changeValueFunc("bankAccount", 0, e.target.value);
             }}
@@ -278,7 +275,7 @@ const SellPageForm = (props) => {
             type="text"
             id="accountNum"
             placeholder="계좌번호"
-            defaultValue={(shopBankAccount || "").split(" ").slice(1, 2)}
+            defaultValue={shopBankAccount[1]}
             onChange={(e) => {
               changeValueFunc("bankAccount", 1, e.target.value);
             }}
@@ -289,7 +286,7 @@ const SellPageForm = (props) => {
             type="text"
             id="accountName"
             placeholder="예금주명"
-            defaultValue={(shopBankAccount || "").split(" ").slice(2, 3)}
+            defaultValue={shopBankAccount[2]}
             onChange={(e) => {
               changeValueFunc("bankAccount", 2, e.target.value);
             }}
