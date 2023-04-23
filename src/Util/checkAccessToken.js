@@ -30,6 +30,7 @@ const getAccessToken = () => {
           refreshToken = res.data.refreshToken;
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
+          window.location.reload();
         })
         .catch((err) => {
           console.log("err", err);
