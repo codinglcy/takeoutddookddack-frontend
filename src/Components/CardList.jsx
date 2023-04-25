@@ -41,7 +41,6 @@ const CardList = () => {
 
   return (
     <div className="cardList">
-      <div>판매뚝딱 주문카드 리스트</div>
       {orders &&
         orders.map((orderInfo, idx) => {
           return (

@@ -70,14 +70,25 @@ const SellPage = (props) => {
 
   return (
     <div className="Pages">
-      <div>판매뚝딱 판매자 페이지입니다.</div>
-      <div className="buttonsDiv">
-        <button onClick={() => navigate("/sellpageform")}>페이지 수정</button>
-        <button onClick={() => navigate("/userform/edit")}>
+      <div className="sellpageButtonsDiv">
+        <button
+          className="sellpageButtons"
+          onClick={() => navigate("/sellpageform")}
+        >
+          페이지 수정
+        </button>
+        <button
+          className="sellpageButtons"
+          onClick={() => navigate("/userform/edit")}
+        >
           회원정보 수정
         </button>
-        <button onClick={deleteSellerId}>회원 탈퇴</button>
-        <button onClick={logout}>로그아웃</button>
+        <button className="sellpageButtons" onClick={deleteSellerId}>
+          회원 탈퇴
+        </button>
+        <button className="sellpageButtons" onClick={logout}>
+          로그아웃
+        </button>
       </div>
       <CardList />
     </div>

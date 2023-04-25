@@ -1,5 +1,9 @@
 .cardList {
-  height: 350px;
+  justify-content: center;
+
+  max-height: 370px;
+  margin-top: 5%;
+
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
