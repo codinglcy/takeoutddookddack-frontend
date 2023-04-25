@@ -95,93 +95,90 @@ const Register = (props) => {
   }, [userData]);
 
   return (
-    <>
-      <div>판매뚝딱 회원가입폼</div>
-      <div className="registerForm">
-        <InputGroup className="mb-3">
-          <FloatingLabel controlId="id" label="ID(아이디)">
-            <Form.Control
-              type="text"
-              placeholder="id"
-              defaultValue={seller.sellerId || ""}
-              onChange={(e) => {
-                setIdCheck(false);
-                changeValueFunc("sellerId", e.target.value);
-              }}
-            />
-          </FloatingLabel>
-          <Button
-            variant="outline-secondary"
-            id="button-addon2"
-            disabled={idCheck}
-            onClick={() => {
-              axiosApi
-                .get(
-                  `/api/seller/idCheck?sellerId=${
-                    document.getElementById("id").value
-                  }`
-                )
-                .then((res) => {
-                  alert(res.data.message);
-                  setIdCheck(true);
-                });
-            }}
-          >
-            중복체크
-          </Button>
-        </InputGroup>
-        <FloatingLabel
-          controlId="password"
-          label="Password(비밀번호)"
-          className="mb-3"
-        >
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              changeValueFunc("pwd", e.target.value);
-            }}
-          />
-        </FloatingLabel>
-        <FloatingLabel
-          controlId="checkPW"
-          label="Check Password(비밀번호 확인)"
-          className="mb-3"
-        >
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              changeValueFunc("pwdCheck", e.target.value);
-            }}
-          />
-        </FloatingLabel>
-        <FloatingLabel
-          controlId="email"
-          label="Email address(이메일)"
-          className="mb-3"
-        >
-          <Form.Control
-            type="email"
-            placeholder="name@example.com"
-            defaultValue={seller.email || ""}
-            onChange={(e) => {
-              changeValueFunc("email", e.target.value);
-            }}
-          />
-        </FloatingLabel>
-        <FloatingLabel controlId="name" label="Name(성명)" className="mb-3">
+    <div className="registerForm">
+      <InputGroup className="mb-3">
+        <FloatingLabel controlId="id" label="ID(아이디)">
           <Form.Control
             type="text"
-            placeholder="name"
-            defaultValue={seller.name || ""}
+            placeholder="id"
+            defaultValue={seller.sellerId || ""}
             onChange={(e) => {
-              changeValueFunc("name", e.target.value);
+              setIdCheck(false);
+              changeValueFunc("sellerId", e.target.value);
             }}
           />
         </FloatingLabel>
-      </div>
-    </>
+        <Button
+          variant="outline-secondary"
+          id="button-addon2"
+          disabled={idCheck}
+          onClick={() => {
+            axiosApi
+              .get(
+                `/api/seller/idCheck?sellerId=${
+                  document.getElementById("id").value
+                }`
+              )
+              .then((res) => {
+                alert(res.data.message);
+                setIdCheck(true);
+              });
+          }}
+        >
+          중복체크
+        </Button>
+      </InputGroup>
+      <FloatingLabel
+        controlId="password"
+        label="Password(비밀번호)"
+        className="mb-3"
+      >
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          onChange={(e) => {
+            changeValueFunc("pwd", e.target.value);
+          }}
+        />
+      </FloatingLabel>
+      <FloatingLabel
+        controlId="checkPW"
+        label="Check Password(비밀번호 확인)"
+        className="mb-3"
+      >
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          onChange={(e) => {
+            changeValueFunc("pwdCheck", e.target.value);
+          }}
+        />
+      </FloatingLabel>
+      <FloatingLabel
+        controlId="email"
+        label="Email address(이메일)"
+        className="mb-3"
+      >
+        <Form.Control
+          type="email"
+          placeholder="name@example.com"
+          defaultValue={seller.email || ""}
+          onChange={(e) => {
+            changeValueFunc("email", e.target.value);
+          }}
+        />
+      </FloatingLabel>
+      <FloatingLabel controlId="name" label="Name(성명)" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="name"
+          defaultValue={seller.name || ""}
+          onChange={(e) => {
+            changeValueFunc("name", e.target.value);
+          }}
+        />
+      </FloatingLabel>
+    </div>
   );
 };
 
