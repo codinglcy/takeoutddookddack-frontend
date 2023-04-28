@@ -1,7 +1,7 @@
 .cardList {
   justify-content: center;
 
-  max-height: 370px;
+  max-height: 380px;
   margin-top: 5%;
 
   overflow: auto;
