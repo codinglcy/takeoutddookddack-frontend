@@ -12,7 +12,7 @@ const OrderCard = (props) => {
       axiosApi.delete(`/api/order/${id}`);
       setTimeout(() => {
         props.getOrdersFunc();
-      }, 10);
+      }, 50);
     }
   };
 
@@ -20,7 +20,7 @@ const OrderCard = (props) => {
     axiosApi.patch(`/api/order/${id}?status=${status}`);
     setTimeout(() => {
       props.getOrdersFunc();
-    }, 10);
+    }, 50);
   };
 
   useEffect(() => {
