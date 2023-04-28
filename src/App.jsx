@@ -78,9 +78,9 @@ function App() {
           </Link>
         </div>
 
-        <a href="http://localhost:3000/">
+        <Link to={"/"}>
           <div className="App-title">포장뚝딱</div>
-        </a>
+        </Link>
 
         <div className="HeaderBtnDiv">
           <HeaderButton whatPage={whatPage} getPageData={getPageData} />
