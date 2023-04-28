@@ -219,9 +219,6 @@ const SellPageForm = (props) => {
               readOnly
               placeholder="근처 건물 주소"
               defaultValue={shopLocation[0]}
-              onChange={(e) => {
-                changeValueFunc("location", 0, e.target.value);
-              }}
             />
 
             <Button
@@ -238,6 +235,7 @@ const SellPageForm = (props) => {
             autoClose
             onComplete={(data) => {
               document.getElementById("address").value = data.jibunAddress;
+              changeValueFunc("location", 0, data.jibunAddress);
               setShow(false);
             }}
           />
