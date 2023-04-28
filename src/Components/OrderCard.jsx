@@ -10,13 +10,17 @@ const OrderCard = (props) => {
   const removeOrder = (id, idx) => {
     if (window.confirm(`${idx}번 카드의 주문 건을 삭제하시겠습니까?`)) {
       axiosApi.delete(`/api/order/${id}`);
-      props.getOrdersFunc();
+      setTimeout(() => {
+        props.getOrdersFunc();
+      }, 10);
     }
   };
 
   const editStatus = (id, status) => {
     axiosApi.patch(`/api/order/${id}?status=${status}`);
-    props.getOrdersFunc();
+    setTimeout(() => {
+      props.getOrdersFunc();
+    }, 10);
   };
 
   useEffect(() => {
