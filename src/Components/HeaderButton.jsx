@@ -235,6 +235,9 @@ const HeaderButton = (props) => {
                   alert("이메일을 다시 확인해 주세요.");
                 } else {
                   axiosApi.post("/api/seller", bodyData);
+                  axiosApi.post("/api/shop", {
+                    sellerId: getData.sellerId,
+                  });
                   navigate("/");
                 }
               }}
