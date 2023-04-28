@@ -3,17 +3,15 @@ import OrderCard from "./OrderCard";
 import "./css/CardList.css";
 import axiosApi from "../Util/api";
 import getAccessToken from "../Util/checkAccessToken";
-import useDidMountEffect from "../Util/useDidMountEffect";
 
 const CardList = () => {
   const [orders, setOrders] = useState([]);
-  const [token, setToken] = useState("");
 
   const getOrdersFunc = () => {
     axiosApi
       .get("/api/order", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${getAccessToken()}`,
         },
       })
       .then((res) => {
@@ -30,14 +28,10 @@ const CardList = () => {
         console.log(err);
       });
   };
-
+  console.log(orders);
   useEffect(() => {
-    setToken(getAccessToken());
-  }, []);
-
-  useDidMountEffect(() => {
     getOrdersFunc();
-  }, [token]);
+  }, []);
 
   return (
     <div className="cardList">
