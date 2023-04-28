@@ -110,13 +110,12 @@ const SellPageForm = (props) => {
   }, [shopData]);
 
   return (
-    <>
-      <div>판매뚝딱 판매페이지폼</div>
+    <div className="sellpageFormDiv">
       <Form.Group as={Row} className="mb-3" controlId="pageUrl">
-        <Form.Label column sm="2">
+        <Form.Label column sm="3">
           페이지 url
         </Form.Label>
-        <Col sm="7">
+        <Col sm="9">
           <Form.Control
             type="text"
             placeholder={sellerShopInfo.shopUrl}
@@ -128,19 +127,20 @@ const SellPageForm = (props) => {
       </Form.Group>
 
       <Form.Group as={Row} className="mb-3">
-        <Form.Label column sm="2">
+        <Form.Label column sm="3">
           메뉴
         </Form.Label>
-        <Col sm="3">
+        <Col sm="4">
           <Form.Control type="text" placeholder="메뉴명" id="plusMenuItem" />
         </Col>
         <Col sm="3">
           <Form.Control type="text" placeholder="가격" id="plusMenuPrice" />
         </Col>
-        <Col sm="1">
+        <Col sm="2">
           <Button
             variant="outline-secondary"
             id="button-addon2"
+            style={{ margin: "0px 25%" }}
             onClick={() => {
               axiosApi
                 .patch("/api/shop/addmenu", {
@@ -167,14 +167,14 @@ const SellPageForm = (props) => {
               <div key={`${menu.item}-div`}>
                 <input
                   key={menu.item}
-                  className="menu"
+                  className="menuItem"
                   readOnly
                   defaultValue={menu.item}
                   id={menu.item}
                 />
                 <input
                   key={`${menu.item}-price`}
-                  className="menu"
+                  className="menuPrice"
                   readOnly
                   defaultValue={menu.price}
                 />
@@ -182,7 +182,7 @@ const SellPageForm = (props) => {
                   key={`${menu.item}-btn`}
                   variant="outline-secondary"
                   id="button-addon2"
-                  className="menu"
+                  className="menuDeleteBtn"
                   onClick={() => {
                     if (
                       window.confirm(
@@ -208,10 +208,10 @@ const SellPageForm = (props) => {
       </div>
 
       <Form.Group as={Row} className="mb-3">
-        <Form.Label column sm="2">
+        <Form.Label column sm="3">
           가게 위치
         </Form.Label>
-        <Col sm="4">
+        <Col sm="5">
           <InputGroup className="mb-3">
             <Form.Control
               id="address"
@@ -242,7 +242,7 @@ const SellPageForm = (props) => {
             }}
           />
         </Modal>
-        <Col sm="3">
+        <Col sm="4">
           <Form.Control
             type="text"
             id="addressMore"
@@ -256,10 +256,10 @@ const SellPageForm = (props) => {
       </Form.Group>
 
       <Form.Group as={Row} className="mb-3">
-        <Form.Label column sm="2">
+        <Form.Label column sm="3">
           입금 받을 계좌
         </Form.Label>
-        <Col sm="1">
+        <Col sm="2">
           <Form.Control
             type="text"
             id="bank"
@@ -270,7 +270,7 @@ const SellPageForm = (props) => {
             }}
           />
         </Col>
-        <Col sm="4">
+        <Col sm="5">
           <Form.Control
             type="text"
             id="accountNum"
@@ -293,7 +293,7 @@ const SellPageForm = (props) => {
           />
         </Col>
       </Form.Group>
-    </>
+    </div>
   );
 };
 
