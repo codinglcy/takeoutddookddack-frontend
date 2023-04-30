@@ -10,7 +10,6 @@ const Menu = (props) => {
 
   useEffect(() => {
     axiosApi.get(`/api/shop/order?sellerId=${props.sellerId}`).then((res) => {
-      console.log(res.data);
       setMenuList(res.data.menu);
     });
   }, [props.sellerId]);

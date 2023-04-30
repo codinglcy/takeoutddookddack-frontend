@@ -29,7 +29,6 @@ const SearchByAddress = ({ shopListFunc }) => {
       )
       .then((res) => {
         setFirstList(res.data.regcodes);
-        console.log(res.data.regcodes);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -41,7 +40,6 @@ const SearchByAddress = ({ shopListFunc }) => {
       )
       .then((res) => {
         setSecondList(res.data.regcodes);
-        console.log(res.data.regcodes);
       })
       .catch((err) => console.log(err));
   }, [first]);
@@ -53,7 +51,6 @@ const SearchByAddress = ({ shopListFunc }) => {
       )
       .then((res) => {
         setThirdList(res.data.regcodes);
-        console.log(res.data.regcodes);
       })
       .catch((err) => console.log(err));
   }, [second]);
@@ -63,17 +60,13 @@ const SearchByAddress = ({ shopListFunc }) => {
     let firstSlice = first.name.slice(0, 2);
     if (no2.includes(firstSlice)) {
       firstSlice = first.name.slice(0, 1) + first.name.slice(2, 3);
-      console.log(firstSlice);
     }
-    console.log(
-      `/api/shop/location?first=${firstSlice}&second=${second.name}&third=${third.name}`
-    );
+
     axiosApi
       .get(
         `/api/shop/location?first=${firstSlice}&second=${second.name}&third=${third.name}`
       )
       .then((res) => {
-        console.log(res.data);
         shopListFunc(res.data);
       });
   };

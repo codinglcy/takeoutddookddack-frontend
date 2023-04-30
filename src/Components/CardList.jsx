@@ -28,7 +28,7 @@ const CardList = () => {
         console.log(err);
       });
   };
-  console.log(orders);
+
   useEffect(() => {
     getOrdersFunc();
   }, []);

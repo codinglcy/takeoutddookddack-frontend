@@ -51,7 +51,6 @@ const OrderBox = (props) => {
     let total = 0;
     setSelectMenu(props.selectMenu);
     props.selectMenu.map((menu) => {
-      console.log(menu.price, menu.quantity, total);
       total = total + menu.price * menu.quantity;
       return total;
     });
@@ -140,15 +139,6 @@ const OrderBox = (props) => {
         orderInfo={orderInfo}
         parentFunc={parentFunc}
       />
-
-      {/* <button
-        onClick={() => {
-          console.log(orderInfo);
-          console.log(props.selectMenu);
-        }}
-      >
-        정보보기
-      </button> */}
     </div>
   );
 };

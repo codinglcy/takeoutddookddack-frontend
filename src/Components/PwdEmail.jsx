@@ -46,10 +46,6 @@ const PwdEmail = (props) => {
                   email: document.getElementById("email").value,
                 })
                 .then((res) => {
-                  console.log(res.data);
-                  console.log(
-                    res.data.indexOf("이메일이 회원정보와 일치하지 않습니다.")
-                  );
                   if (
                     res.data.indexOf("이메일이 회원정보와 일치하지 않습니다.") <
                     0

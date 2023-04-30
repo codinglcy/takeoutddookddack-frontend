@@ -63,14 +63,12 @@ const Login = (props) => {
                   pwd: `${document.getElementById("password").value}`,
                 })
                 .then((res) => {
-                  console.log(res.data);
                   localStorage.setItem("accessToken", res.data.accessToken);
                   localStorage.setItem("refreshToken", res.data.refreshToken);
                   handleClose();
                   navigate("/sellpage");
                 })
                 .catch((err) => {
-                  console.log(err.response.data.message);
                   alert(`${err.response.data.message}`);
                 });
             }}

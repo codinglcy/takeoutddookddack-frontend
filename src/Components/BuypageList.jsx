@@ -9,7 +9,6 @@ const BuypageList = () => {
   useEffect(() => {
     axiosApi.get("/api/shop/all").then((res) => {
       setShopList(res.data);
-      console.log(res.data);
     });
   }, []);
 

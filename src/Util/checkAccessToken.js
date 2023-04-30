@@ -17,15 +17,12 @@ const getAccessToken = () => {
         Authorization: `Bearer ${accessToken}`,
       },
     })
-    .then((res) => {
-      console.log(res.data, accessToken);
-    })
+    .then((res) => {})
     .catch((err) => {
       console.log("err", err);
       axiosApi
         .get(`/api/seller/checkRefreshToken?token=${refreshToken}`)
         .then((res) => {
-          console.log("refresh", res);
           accessToken = res.data.accessToken;
           refreshToken = res.data.refreshToken;
           localStorage.setItem("accessToken", accessToken);

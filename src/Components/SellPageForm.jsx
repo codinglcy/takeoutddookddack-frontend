@@ -34,7 +34,6 @@ const SellPageForm = (props) => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setSellerShopInfo(res.data);
       })
       .catch((err) => {
@@ -47,7 +46,6 @@ const SellPageForm = (props) => {
     setShopData((current) => {
       let newData = { ...current };
       let newList = [...current[what]];
-      console.log(newList);
 
       newList[index] = value;
       newData[what] = newList;
