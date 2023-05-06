@@ -82,9 +82,7 @@ function App() {
           <div className="App-title">포장뚝딱</div>
         </Link>
 
-        <div className="HeaderBtnDiv">
-          <HeaderButton whatPage={whatPage} getPageData={getPageData} />
-        </div>
+        <HeaderButton whatPage={whatPage} getPageData={getPageData} />
       </header>
 
       <Routes>
@@ -148,6 +146,46 @@ function App() {
           }
         ></Route>
       </Routes>
+
+      <footer className="App-footer">
+        <div className="PageButtonsfooter">
+          <button
+            className="SellPageButtonfooter"
+            onClick={() => {
+              if (localStorage.getItem("accessToken") && getAccessToken()) {
+                navigate("/sellPage");
+              } else {
+                setLoginShow(true);
+              }
+            }}
+          >
+            {isBuyPage ? (
+              <div className="SellPageno">판매뚝딱</div>
+            ) : (
+              <div className="SellPageyes">판매뚝딱</div>
+            )}
+          </button>
+          <Login
+            loginShow={loginShow}
+            loginShowFunc={loginShowFunc}
+            pwdEmailShowFunc={pwdEmailShowFunc}
+          />
+          <PwdEmail
+            pwdEmailShow={pwdEmailShow}
+            pwdEmailShowFunc={pwdEmailShowFunc}
+          />
+
+          <Link to={"/"}>
+            <button className="BuyPageButtonfooter">
+              {isBuyPage ? (
+                <div className="BuyPageyes">주문뚝딱</div>
+              ) : (
+                <div className="BuyPageno">주문뚝딱</div>
+              )}
+            </button>
+          </Link>
+        </div>
+      </footer>
     </>
   );
 }
