@@ -1,15 +1,9 @@
 .BuypageListDiv {
   position: relative;
-  /* clear: both; */
-  /* justify-items: center; */
-  /* align-items: center; */
   text-align: center;
-  /* display: flex; */
-  /* justify-content: center; */
 }
 
 .BuypageListTitle {
-  /* position: absolute; */
   font-size: 25px;
   font-weight: bold;
   padding-top: 10px;
@@ -22,8 +16,6 @@
 }
 
 .pagelistBox {
-  /* position: absolute; */
-
   border: solid 1px;
   border-radius: 5px;
   width: 600px;
