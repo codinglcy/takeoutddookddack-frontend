@@ -275,7 +275,7 @@
     font-weight: 300;
   }
 
-  .sellpageButtonsDiv {
+  /* .sellpageButtonsDiv {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -289,7 +289,7 @@
     height: 35px;
     background-color: transparent;
     border: none;
-  }
+  } */
 
   .App-footer {
     height: 50px;
@@ -428,7 +428,7 @@
     font-weight: 300;
   }
 
-  .sellpageButtonsDiv {
+  /* .sellpageButtonsDiv {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -442,7 +442,7 @@
     height: 35px;
     background-color: transparent;
     border: none;
-  }
+  } */
 
   .App-footer {
     height: 50px;
