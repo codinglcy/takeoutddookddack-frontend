@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="AppDiv">
       <header className="App-header">
         <div className="PageButtons">
           <button
@@ -186,7 +186,7 @@ function App() {
           </Link>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 

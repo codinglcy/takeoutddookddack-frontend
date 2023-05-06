@@ -1,3 +1,8 @@
+.AppDiv {
+  width: 100%;
+  height: 100%;
+}
+
 .App-header {
   height: 130px;
   justify-content: center;
@@ -143,10 +148,15 @@
   display: none;
 }
 
-@media (max-width: 890px) and (min-width: 400px) {
+@media (max-width: 890px) and (min-width: 450px) {
+  .AppDiv {
+    width: 450px;
+    height: 100%;
+  }
+
   .App-header {
     height: 80px;
-    width: 400px;
+    width: 450px;
     justify-content: center;
     background: rgba(255, 220, 179, 0.25);
     position: relative;
@@ -180,6 +190,7 @@
 
   .Pages {
     height: calc(100% - 130px);
+    width: 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -282,7 +293,7 @@
 
   .App-footer {
     height: 50px;
-    width: 400px;
+    width: 450px;
     display: flex;
     background: rgba(255, 220, 179, 0.25);
     position: relative;
@@ -290,7 +301,12 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
+  .AppDiv {
+    width: 100%;
+    height: 100%;
+  }
+
   .App-header {
     height: 80px;
     width: 100vw;
@@ -327,6 +343,7 @@
 
   .Pages {
     height: calc(100% - 130px);
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
