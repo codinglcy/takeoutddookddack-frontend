@@ -1,0 +1,35 @@
+.SearchByAddressDiv {
+  font-size: 18px;
+}
+
+.SearchByAddressDiv #button-addon2 {
+  height: 28px;
+  padding: 2px 8px;
+  margin-top: -4px;
+}
+
+@media (max-width: 890px) and (min-width: 450px) {
+  .SearchByAddressDiv {
+    font-size: 15px;
+  }
+
+  .SearchByAddressDiv #button-addon2 {
+    height: 25px;
+    padding: 1px 7px;
+    margin-top: -1px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .SearchByAddressDiv {
+    font-size: 12px;
+  }
+
+  .SearchByAddressDiv #button-addon2 {
+    height: 23px;
+    padding: 2px 6px;
+    margin-top: -1px;
+    font-size: 14px;
+  }
+}

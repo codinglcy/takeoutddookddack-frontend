@@ -23,15 +23,22 @@ const BuypageList = () => {
       <div className="pagelistBox">
         <table className="table">
           <colgroup>
-            <col width="370px" />
-            <col width="120px" />
-            <col width="110px" />
+            <col width="3.2" />
+            <col width="1" />
+            <col width="0.8" />
           </colgroup>
           <thead>
-            <tr>
+            <tr
+              className="tableTR"
+              style={{
+                position: "sticky",
+                top: "0",
+                backgroundColor: "white",
+              }}
+            >
               <th>가게 위치</th>
-              <th>가게 상태</th>
-              <th>가게 url</th>
+              <th></th>
+              <th>url</th>
             </tr>
           </thead>
           <tbody className="listBody">

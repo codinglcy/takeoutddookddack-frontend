@@ -12,7 +12,7 @@
   /* position: absolute; */
   font-size: 25px;
   font-weight: bold;
-  padding: 5px;
+  padding-top: 10px;
   margin: 5px;
 }
 
@@ -40,11 +40,120 @@
 
 .pagelistBox .table {
   table-layout: fixed;
-  /* text-align: center; */
 }
 
-td {
+.pagelistBox .table td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 8px;
+}
+
+@media (max-width: 890px) and (min-width: 450px) {
+  .BuypageListDiv {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .BuypageListTitle {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0px;
+    margin: 5px;
+  }
+
+  .SearchByAddressDiv {
+    height: 50px;
+    padding-top: 8px;
+  }
+
+  .pagelistBox {
+    font-size: 13px;
+    border: solid 1px;
+    border-radius: 5px;
+    width: 395px;
+    height: 330px;
+    overflow: auto;
+    text-align: center;
+    justify-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .pagelistBox::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tableTR {
+    font-size: 15px;
+  }
+
+  .pagelistBox .table {
+    table-layout: fixed;
+  }
+
+  .pagelistBox .table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 8px 3px;
+  }
+}
+
+@media (max-width: 450px) {
+  .BuypageListDiv {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BuypageListTitle {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0px;
+    margin: 5px;
+  }
+
+  .SearchByAddressDiv {
+    height: 50px;
+    padding-top: 8px;
+  }
+
+  .pagelistBox {
+    font-size: 13px;
+    border: solid 1px;
+    border-radius: 5px;
+    width: 90%;
+    height: 73%;
+    overflow: auto;
+    text-align: center;
+    justify-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .pagelistBox::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pagelistBox .table {
+    table-layout: fixed;
+  }
+
+  .tableTR {
+    font-size: 15px;
+  }
+
+  .pagelistBox .table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 8px 3px;
+  }
 }

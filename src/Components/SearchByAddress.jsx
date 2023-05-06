@@ -161,13 +161,7 @@ const SearchByAddress = ({ shopListFunc }) => {
             );
           })}
       </select>
-      <Button
-        variant="outline-secondary"
-        id="button-addon2"
-        className="searchBtn"
-        onClick={doSearch}
-        style={{ height: "28px", padding: "2px 8px", marginTop: "-4px" }}
-      >
+      <Button variant="outline-secondary" id="button-addon2" onClick={doSearch}>
         검색
       </Button>
     </div>
