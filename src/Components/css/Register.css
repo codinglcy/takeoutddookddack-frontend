@@ -2,3 +2,10 @@
   padding-top: 6%;
   width: 500px;
 }
+
+@media (max-width: 890px) {
+  .registerForm {
+    padding-top: 6%;
+    width: 90%;
+  }
+}
