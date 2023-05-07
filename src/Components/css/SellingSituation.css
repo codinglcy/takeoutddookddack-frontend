@@ -1,11 +1,8 @@
 .sellingSituationDiv {
   margin-top: 45px;
-  /* padding-left: 21%;
-  padding-right: 21%; */
   display: flex;
   justify-content: center;
   height: 400px;
-  /* align-items: center; */
   position: absolute;
 }
 
@@ -38,10 +35,9 @@
 .situationTable {
   table-layout: fixed;
   width: 100%;
-  /* white-space: pre-wrap; */
 }
 
-td {
+.situationTable td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -55,7 +51,7 @@ td {
   border-radius: 18px;
   text-align: center;
   padding: 5px;
-  margin: 0px 23%;
+  margin: 0px auto;
 
   color: #606060;
 }
@@ -67,7 +63,7 @@ td {
   border-radius: 18px;
   text-align: center;
   padding: 5px;
-  margin: 0px 23%;
+  margin: 0px auto;
 
   color: #606060;
 }
@@ -79,7 +75,183 @@ td {
   border-radius: 18px;
   text-align: center;
   padding: 5px;
-  margin: 0px 23%;
+  margin: 0px auto;
 
   color: #606060;
+}
+
+@media (max-width: 890px) and (min-width: 450px) {
+  .sellingSituationDiv {
+    margin-top: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    height: calc(94% - 150px);
+    width: 100%;
+    top: calc(4% + 150px);
+    position: absolute;
+  }
+
+  .situation {
+    width: 96%;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .situationTitle {
+    font-size: 26px;
+    font-weight: bold;
+    padding-bottom: 50px;
+  }
+
+  .situationTableDiv {
+    width: 100%;
+    white-space: pre-wrap;
+    border: solid 1px;
+    border-radius: 3px;
+    max-height: calc(97% - 89px);
+
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .situationTableDiv::-webkit-scrollbar {
+    display: none;
+  }
+
+  .situationTable {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .situationTable td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 4px 0px;
+  }
+
+  .newDiv {
+    background: rgba(154, 188, 255, 0.7);
+
+    width: 80px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px auto;
+
+    color: #606060;
+  }
+
+  .checkDiv {
+    background: rgba(129, 223, 114, 0.7);
+
+    width: 80px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px auto;
+
+    color: #606060;
+  }
+
+  .readyDiv {
+    background: rgba(253, 176, 85, 0.7);
+
+    width: 80px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px auto;
+
+    color: #606060;
+  }
+}
+
+@media (max-width: 450px) {
+  .sellingSituationDiv {
+    margin-top: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    height: calc(94% - 150px);
+    width: 100%;
+    top: calc(4% + 150px);
+    position: absolute;
+  }
+
+  .situation {
+    width: 98%;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .situationTitle {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 50px;
+  }
+
+  .situationTableDiv {
+    width: 100%;
+    white-space: pre-wrap;
+    border: solid 1px;
+    border-radius: 3px;
+    max-height: calc(97% - 85px);
+
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .situationTableDiv::-webkit-scrollbar {
+    display: none;
+  }
+
+  .situationTable {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .situationTable td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 4px 0px;
+  }
+
+  .newDiv {
+    background: rgba(154, 188, 255, 0.7);
+
+    width: 80px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px auto;
+
+    color: #606060;
+  }
+
+  .checkDiv {
+    background: rgba(129, 223, 114, 0.7);
+
+    width: 80px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px auto;
+
+    color: #606060;
+  }
+
+  .readyDiv {
+    background: rgba(253, 176, 85, 0.7);
+
+    width: 80px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px auto;
+
+    color: #606060;
+  }
 }

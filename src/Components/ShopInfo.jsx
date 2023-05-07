@@ -15,7 +15,7 @@ const ShopInfo = (props) => {
       <div className="shopLocationDiv">
         <div className="shopdivtitle">가게위치</div>
         <div className="shopdivbody">
-          {location && `${location.address}\n${location.more}`}
+          {location && `${location.address} ${location.more}`}
         </div>
       </div>
       <div className="shopBankAccountDiv">

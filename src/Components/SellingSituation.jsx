@@ -70,7 +70,7 @@ const SellingSituation = (props) => {
             <colgroup>
               <col width="25%" />
               <col width="*" />
-              <col width="25%" />
+              <col width="20%" />
             </colgroup>
             <thead>
               <tr

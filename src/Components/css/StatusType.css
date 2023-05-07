@@ -1,13 +1,8 @@
 .statusBtnDiv {
   display: flex;
-  /* width: 100%; */
   flex-direction: column;
-  /* align-items: center; */
   position: relative;
-  /* position: absolute; */
   top: 70%;
-  /* padding-left: 10%; */
-  /* left: 10%; */
   right: 40%;
 }
 
@@ -57,4 +52,126 @@
   padding: 5px;
 
   color: #606060;
+}
+
+@media (max-width: 890px) and (min-width: 450px) {
+  .statusBtnDiv {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    top: calc(5% + 190px);
+    right: 0px;
+  }
+
+  .statusBtns {
+    margin: 3px;
+    background-color: transparent;
+    border: none;
+  }
+
+  .allBtnDiv {
+    width: 80px;
+    height: 34px;
+    padding: 5px;
+  }
+
+  .newBtnDiv {
+    background: rgba(154, 188, 255, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+
+    color: #606060;
+  }
+
+  .checkBtnDiv {
+    background: rgba(129, 223, 114, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+
+    color: #606060;
+  }
+
+  .readyBtnDiv {
+    background: rgba(253, 176, 85, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+
+    color: #606060;
+  }
+}
+
+@media (max-width: 450px) {
+  .statusBtnDiv {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    top: calc(5% + 190px);
+    right: 0px;
+    font-size: 15px;
+  }
+
+  .statusBtns {
+    margin: 0px;
+    background-color: transparent;
+    border: none;
+    padding: 0px 1%;
+  }
+
+  .allBtnDiv {
+    width: 80px;
+    height: 34px;
+    padding: 6px;
+  }
+
+  .newBtnDiv {
+    background: rgba(154, 188, 255, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 6px;
+
+    color: #606060;
+  }
+
+  .checkBtnDiv {
+    background: rgba(129, 223, 114, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 6px;
+
+    color: #606060;
+  }
+
+  .readyBtnDiv {
+    background: rgba(253, 176, 85, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 6px;
+
+    color: #606060;
+  }
 }

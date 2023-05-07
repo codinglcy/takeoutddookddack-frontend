@@ -194,8 +194,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     font-family: "Sunflower";
     overflow: auto;
+    position: relative;
   }
 
   .PageButtons {
@@ -349,6 +351,7 @@
     justify-content: center;
     font-family: "Sunflower";
     overflow: auto;
+    position: relative;
   }
 
   .PageButtons {
