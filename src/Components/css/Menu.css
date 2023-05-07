@@ -3,7 +3,6 @@
   width: 370px;
   height: 400px;
   margin-top: 3%;
-  /* margin-right: 5%; */
   border: solid 1px;
   border-radius: 3px;
 }
@@ -17,16 +16,8 @@
   margin-top: 5px;
 }
 
-.menuBox {
-  /* background-color: beige; */
-  border: solid 1px;
-  border-radius: 5%;
-  width: 400px;
-  height: 400px;
-}
-
 .menulistBox {
-  width: 370px;
+  width: 100%;
   height: 345px;
   overflow: auto;
   -ms-overflow-style: none;
@@ -40,13 +31,123 @@
   table-layout: fixed;
 }
 
-td {
+.menulistBox .table .listBody td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  align-items: center;
 }
 
-input {
+.menulistBox .table .listBody td input {
   border: none;
+}
+
+.menulistBox .table .listBody td .btn-outline-secondary {
+  width: 100%;
+  padding: 8px;
+}
+
+@media (max-width: 890px) and (min-width: 450px) {
+  .menuComponentDiv {
+    position: absolute;
+    width: 92%;
+    height: 45%;
+    margin-top: 0px;
+    top: 2%;
+    border: solid 1px;
+    border-radius: 3px;
+  }
+
+  .menuTitle {
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-top: 4px;
+  }
+
+  .menulistBox {
+    width: 100%;
+    height: calc(100% - 36px);
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-size: 14px;
+  }
+  .menulistBox::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menulistBox .table {
+    table-layout: fixed;
+  }
+
+  .menulistBox .table .listBody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .menulistBox .table .listBody td input {
+    border: none;
+  }
+
+  .menulistBox .table .listBody td .btn-outline-secondary {
+    font-size: 13px;
+    width: 100%;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 450px) {
+  .menuComponentDiv {
+    position: absolute;
+    width: 90%;
+    height: 45%;
+    margin-top: 0px;
+    top: 2%;
+    border: solid 1px;
+    border-radius: 3px;
+  }
+
+  .menuTitle {
+    text-align: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-top: 4px;
+  }
+
+  .menulistBox {
+    width: 100%;
+    height: calc(100% - 36px);
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-size: 13px;
+  }
+  .menulistBox::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menulistBox .table {
+    table-layout: fixed;
+  }
+
+  .menulistBox .table .listBody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .menulistBox .table .listBody td input {
+    border: none;
+  }
+
+  .menulistBox .table .listBody td .btn-outline-secondary {
+    font-size: 12px;
+    width: 100%;
+    padding: 5px;
+  }
 }

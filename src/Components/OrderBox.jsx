@@ -121,9 +121,7 @@ const OrderBox = (props) => {
               );
             })}
         </div>
-        <div style={{ width: "100%", textAlign: "center" }}>
-          ----------------------------------------
-        </div>
+        <hr />
         <div className="totalPriceDiv">
           <div>총 금액:</div>
           <div>{totalPrice} 원</div>

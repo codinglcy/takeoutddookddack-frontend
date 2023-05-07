@@ -28,12 +28,18 @@ const Menu = (props) => {
       <div className="menulistBox">
         <table className="table">
           <colgroup>
-            <col width="200px" />
-            <col width="100px" />
-            <col width="70px" />
+            <col width="2" />
+            <col width="1" />
+            <col width="0.6" />
           </colgroup>
           <thead>
-            <tr>
+            <tr
+              style={{
+                position: "sticky",
+                top: "0",
+                backgroundColor: "white",
+              }}
+            >
               <th>메뉴명</th>
               <th>가격</th>
               <th></th>

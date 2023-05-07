@@ -349,6 +349,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     font-family: "Sunflower";
     overflow: auto;
     position: relative;
@@ -409,7 +410,7 @@
   .headerBtnDiv {
     position: absolute;
     top: 50%;
-    left: 72%;
+    left: 75%;
     transform: translate(-50%, -50%);
 
     align-items: end;
@@ -422,7 +423,7 @@
     border-radius: 15px;
 
     width: 120px;
-    height: 40px;
+    height: 45px;
 
     align-items: center;
     text-align: center;
