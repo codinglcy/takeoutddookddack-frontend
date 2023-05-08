@@ -88,7 +88,7 @@ const SellPageForm = (props) => {
   }, [sellerShopInfo]);
 
   useDidMountEffect(() => {
-    if (shopMenu.length < 1) {
+    if (shopMenu && shopMenu.length < 1) {
       setShopData((current) => {
         let newData = { ...current };
         newData["menu"] = false;
