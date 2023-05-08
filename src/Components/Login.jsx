@@ -1,5 +1,5 @@
 import "./css/Login.css";
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 const Login = (props) => {
   const logShow = props.loginShow;
   const navigate = useNavigate();
+  const [loginId, setLoginId] = useState();
+  const [loginPw, setLoginPw] = useState();
 
   const handleClose = () => {
     props.loginShowFunc(false);
@@ -24,11 +26,19 @@ const Login = (props) => {
           <Form>
             <Form.Group className="mb-3" controlId="id">
               <Form.Label>ID(아이디)</Form.Label>
-              <Form.Control type="text" placeholder="Enter ID" />
+              <Form.Control
+                type="text"
+                placeholder="Enter ID"
+                onChange={(e) => setLoginId(e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Password(비밀번호)</Form.Label>
-              <Form.Control type="password" placeholder="Enter Password" />
+              <Form.Control
+                type="password"
+                placeholder="Enter Password"
+                onChange={(e) => setLoginPw(e.target.value)}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -59,8 +69,8 @@ const Login = (props) => {
             onClick={() => {
               axiosApi
                 .post("/api/seller/login", {
-                  sellerId: `${document.getElementById("id").value}`,
-                  pwd: `${document.getElementById("password").value}`,
+                  sellerId: loginId,
+                  pwd: loginPw,
                 })
                 .then((res) => {
                   localStorage.setItem("accessToken", res.data.accessToken);
