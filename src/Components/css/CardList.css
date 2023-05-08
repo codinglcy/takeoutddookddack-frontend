@@ -1,7 +1,7 @@
 .cardList {
   justify-content: center;
 
-  max-height: 380px;
+  max-height: calc(100vh - 230px);
   margin-top: 5%;
 
   overflow: auto;
@@ -10,4 +10,42 @@
 }
 .cardList::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 890px) and (min-width: 450px) {
+  .cardList {
+    justify-content: center;
+    position: absolute;
+
+    max-height: 80%;
+    margin-top: 0px;
+    top: calc(7% + 55px);
+
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .cardList::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .cardList {
+    justify-content: center;
+    position: absolute;
+
+    max-height: 81%;
+    margin-top: 0px;
+    top: calc(6% + 50px);
+
+    font-size: 15px;
+
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .cardList::-webkit-scrollbar {
+    display: none;
+  }
 }

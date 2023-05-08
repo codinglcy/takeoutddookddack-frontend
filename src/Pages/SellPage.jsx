@@ -81,13 +81,13 @@ const SellPage = (props) => {
           className="sellpageButtons"
           onClick={() => navigate("/userform/edit")}
         >
-          회원정보 수정
-        </button>
-        <button className="sellpageButtons" onClick={deleteSellerId}>
-          회원 탈퇴
+          회원 정보 수정
         </button>
         <button className="sellpageButtons" onClick={logout}>
           로그아웃
+        </button>
+        <button className="sellpageButtons" onClick={deleteSellerId}>
+          회원 탈퇴
         </button>
       </div>
       <CardList />

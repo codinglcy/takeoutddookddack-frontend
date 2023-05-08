@@ -277,21 +277,24 @@
     font-weight: 300;
   }
 
-  /* .sellpageButtonsDiv {
+  .sellpageButtonsDiv {
     position: absolute;
     display: flex;
-    flex-direction: column;
-    right: 3%;
-    padding-top: 1%;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    top: 3%;
+    font-size: 15px;
   }
 
   .sellpageButtons {
-    margin: 8px 0px;
-    width: 130px;
-    height: 35px;
+    margin: 5px 0px;
+    padding: 0px;
+    width: 22%;
+    height: 44px;
     background-color: transparent;
     border: none;
-  } */
+  }
 
   .App-footer {
     height: 50px;
@@ -432,21 +435,24 @@
     font-weight: 300;
   }
 
-  /* .sellpageButtonsDiv {
+  .sellpageButtonsDiv {
     position: absolute;
     display: flex;
-    flex-direction: column;
-    right: 3%;
-    padding-top: 1%;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    top: 3%;
+    font-size: 15px;
   }
 
   .sellpageButtons {
-    margin: 8px 0px;
-    width: 130px;
-    height: 35px;
+    margin: 5px 0px;
+    padding: 0px;
+    width: 73px;
+    height: 40px;
     background-color: transparent;
     border: none;
-  } */
+  }
 
   .App-footer {
     height: 50px;

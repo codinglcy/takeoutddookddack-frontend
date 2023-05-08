@@ -131,3 +131,139 @@
 
   color: #6060605d;
 }
+
+@media (max-width: 450px) {
+  .ordercardDiv {
+    position: relative;
+
+    margin-bottom: 30px;
+  }
+
+  #orderNumber {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    padding: 7px;
+    top: -15px;
+
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    background: #ffdcb2;
+    color: #606060;
+  }
+
+  #closeBtn {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 0px;
+
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    color: #fdb055;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  }
+
+  .orderCards {
+    position: absolute;
+    z-index: 1;
+    margin: 15px;
+    padding: 5px;
+  }
+
+  .orderMenuInfoDiv {
+    width: 260px;
+    margin-bottom: 10px;
+  }
+
+  .orderMenuInfoDiv .table {
+    table-layout: fixed;
+  }
+
+  .orderCardStatusBtn {
+    text-align: center;
+  }
+
+  .newBtn {
+    background: rgba(154, 188, 255, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px 3px;
+    border: none;
+
+    color: #606060;
+  }
+  .newBtnCheck {
+    background: rgba(222, 222, 255, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px 3px;
+    border: none;
+
+    color: #6060605d;
+  }
+
+  .checkBtn {
+    background: rgba(129, 223, 114, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px 3px;
+    border: none;
+
+    color: #606060;
+  }
+  .checkBtnCheck {
+    background: rgba(222, 254, 217, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px 3px;
+    border: none;
+
+    color: #6060605d;
+  }
+
+  .readyBtn {
+    background: rgba(253, 176, 85, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px 3px;
+    border: none;
+
+    color: #606060;
+  }
+  .readyBtnCheck {
+    background: rgba(255, 227, 193, 0.7);
+
+    width: 80px;
+    height: 34px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px 3px;
+    border: none;
+
+    color: #6060605d;
+  }
+}
