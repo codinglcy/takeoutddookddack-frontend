@@ -47,12 +47,19 @@ const SellPage = (props) => {
   }, [isOpen]);
 
   const deleteSellerId = () => {
+    const token = getAccessToken();
     if (window.confirm("정말 탈퇴하시겠습니까?")) {
       axiosApi.delete("/api/seller", {
         headers: {
-          Authorization: `Bearer ${getAccessToken()}`,
+          Authorization: `Bearer ${token}`,
         },
       });
+      axiosApi.delete("/api/shop", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.clear();
       navigate("/");
     }
   };
