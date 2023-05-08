@@ -53,6 +53,7 @@ const SellPage = (props) => {
           Authorization: `Bearer ${getAccessToken()}`,
         },
       });
+      navigate("/");
     }
   };
 
