@@ -128,34 +128,36 @@ const SellPageForm = (props) => {
         <Form.Label column sm="3">
           메뉴
         </Form.Label>
-        <Col sm="4">
-          <Form.Control type="text" placeholder="메뉴명" id="plusMenuItem" />
-        </Col>
-        <Col sm="3">
-          <Form.Control type="text" placeholder="가격" id="plusMenuPrice" />
-        </Col>
-        <Col sm="2">
-          <Button
-            variant="outline-secondary"
-            id="button-addon2"
-            style={{ margin: "0px 25%" }}
-            onClick={() => {
-              axiosApi
-                .patch("/api/shop/addmenu", {
-                  id: sellerShopInfo.id,
-                  item: document.getElementById("plusMenuItem").value,
-                  price: document.getElementById("plusMenuPrice").value,
-                })
-                .then((res) => {
-                  setSellerShopInfo(res.data);
-                });
-              document.getElementById("plusMenuItem").value = "";
-              document.getElementById("plusMenuPrice").value = "";
-            }}
-          >
-            추가
-          </Button>
-        </Col>
+        <div className="flexRowDiv">
+          <Col sm="4">
+            <Form.Control type="text" placeholder="메뉴명" id="plusMenuItem" />
+          </Col>
+          <Col sm="3">
+            <Form.Control type="text" placeholder="가격" id="plusMenuPrice" />
+          </Col>
+          <Col sm="2">
+            <Button
+              variant="outline-secondary"
+              id="button-addon2"
+              style={{ margin: "0px 25%" }}
+              onClick={() => {
+                axiosApi
+                  .patch("/api/shop/addmenu", {
+                    id: sellerShopInfo.id,
+                    item: document.getElementById("plusMenuItem").value,
+                    price: document.getElementById("plusMenuPrice").value,
+                  })
+                  .then((res) => {
+                    setSellerShopInfo(res.data);
+                  });
+                document.getElementById("plusMenuItem").value = "";
+                document.getElementById("plusMenuPrice").value = "";
+              }}
+            >
+              추가
+            </Button>
+          </Col>
+        </div>
       </Form.Group>
 
       <div className="menuList">
@@ -209,25 +211,27 @@ const SellPageForm = (props) => {
         <Form.Label column sm="3">
           가게 위치
         </Form.Label>
-        <Col sm="5">
-          <InputGroup className="mb-3">
-            <Form.Control
-              id="address"
-              type="text"
-              readOnly
-              placeholder="근처 건물 주소"
-              defaultValue={shopLocation[0]}
-            />
+        <div className="flexRowDiv">
+          <Col>
+            <InputGroup className="mb-3">
+              <Form.Control
+                id="address"
+                type="text"
+                readOnly
+                placeholder="근처 건물 주소"
+                defaultValue={shopLocation[0]}
+              />
 
-            <Button
-              variant="outline-secondary"
-              id="button-addon2"
-              onClick={() => setShow(true)}
-            >
-              찾기
-            </Button>
-          </InputGroup>
-        </Col>
+              <Button
+                variant="outline-secondary"
+                id="button-addon2"
+                onClick={() => setShow(true)}
+              >
+                찾기
+              </Button>
+            </InputGroup>
+          </Col>
+        </div>
         <Modal show={show} onHide={() => setShow(false)} keyboard={false}>
           <DaumPostCode
             autoClose
@@ -255,39 +259,41 @@ const SellPageForm = (props) => {
         <Form.Label column sm="3">
           입금 받을 계좌
         </Form.Label>
-        <Col sm="2">
-          <Form.Control
-            type="text"
-            id="bank"
-            placeholder="은행"
-            defaultValue={shopBankAccount[0]}
-            onChange={(e) => {
-              changeValueFunc("bankAccount", 0, e.target.value);
-            }}
-          />
-        </Col>
-        <Col sm="5">
-          <Form.Control
-            type="text"
-            id="accountNum"
-            placeholder="계좌번호"
-            defaultValue={shopBankAccount[1]}
-            onChange={(e) => {
-              changeValueFunc("bankAccount", 1, e.target.value);
-            }}
-          />
-        </Col>
-        <Col sm="2">
-          <Form.Control
-            type="text"
-            id="accountName"
-            placeholder="예금주명"
-            defaultValue={shopBankAccount[2]}
-            onChange={(e) => {
-              changeValueFunc("bankAccount", 2, e.target.value);
-            }}
-          />
-        </Col>
+        <div className="flexRowDiv">
+          <Col sm="2">
+            <Form.Control
+              type="text"
+              id="bank"
+              placeholder="은행"
+              defaultValue={shopBankAccount[0]}
+              onChange={(e) => {
+                changeValueFunc("bankAccount", 0, e.target.value);
+              }}
+            />
+          </Col>
+          <Col sm="5">
+            <Form.Control
+              type="text"
+              id="accountNum"
+              placeholder="계좌번호"
+              defaultValue={shopBankAccount[1]}
+              onChange={(e) => {
+                changeValueFunc("bankAccount", 1, e.target.value);
+              }}
+            />
+          </Col>
+          <Col sm="2">
+            <Form.Control
+              type="text"
+              id="accountName"
+              placeholder="예금주명"
+              defaultValue={shopBankAccount[2]}
+              onChange={(e) => {
+                changeValueFunc("bankAccount", 2, e.target.value);
+              }}
+            />
+          </Col>
+        </div>
       </Form.Group>
     </div>
   );

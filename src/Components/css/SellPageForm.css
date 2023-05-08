@@ -1,14 +1,28 @@
 .sellpageFormDiv {
-  margin-top: 5%;
-  width: 700px;
-  height: 380px;
+  margin-top: 2%;
+  width: 70%;
+  height: 70%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.sellpageFormDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.sellpageFormDiv .mb-3row {
+  display: flex;
+  flex-direction: column;
+}
+.sellpageFormDiv .mb-3 .flexRowDiv {
+  display: flex;
+  flex-direction: row;
 }
 
 .menuList {
   border: solid 1px;
-  margin-left: 27%;
   margin-bottom: 15px;
-  width: 500px;
+  width: 90%;
   height: 150px;
   overflow: auto;
 }
@@ -28,4 +42,182 @@
 
 #button-addon2 {
   padding: 5px 7px;
+}
+
+.sellpageFormDiv .col-sm-2 {
+  width: 22%;
+  margin: 0px 2px;
+}
+.sellpageFormDiv .col-sm-3 {
+  width: 33%;
+  margin: 0px 2px;
+}
+.sellpageFormDiv .col-sm-4 {
+  width: 43%;
+  margin: 0px 2px;
+}
+.sellpageFormDiv .col-sm-5 {
+  width: 53%;
+  margin: 0px 2px;
+}
+.sellpageFormDiv .col-sm-9 {
+  width: 98%;
+  margin: 0px 2px;
+}
+
+@media (max-width: 890px) and (min-width: 450px) {
+  .sellpageFormDiv {
+    position: absolute;
+    top: 8%;
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 15px;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+
+  .sellpageFormDiv .mb-3row {
+    display: flex;
+    flex-direction: column;
+  }
+  .sellpageFormDiv .mb-3 .flexRowDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .menuList {
+    border: solid 1px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    width: 99%;
+    height: 30%;
+    overflow: auto;
+
+    font-size: 14px;
+  }
+
+  .menuItem {
+    padding: 5px;
+    margin: 8px;
+    border: none;
+    width: 45%;
+  }
+  .menuPrice {
+    padding: 5px;
+    margin: 8px;
+    border: none;
+    width: 30%;
+  }
+
+  #button-addon2 {
+    padding: 5px;
+    width: 50px;
+    font-size: 15px;
+  }
+
+  .sellpageFormDiv .col-sm-2 {
+    width: 22%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-3 {
+    width: 33%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-4 {
+    width: 43%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-5 {
+    width: 53%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-9 {
+    width: 98%;
+    margin: 0px 2px;
+  }
+}
+
+@media (max-width: 450px) {
+  .sellpageFormDiv {
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 14px;
+  }
+
+  .form-control {
+    font-size: 13px;
+  }
+
+  .sellpageFormDiv .mb-3row {
+    display: flex;
+    flex-direction: column;
+  }
+  .sellpageFormDiv .mb-3 .flexRowDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .menuList {
+    border: solid 1px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    width: 99%;
+    height: 30%;
+    overflow: auto;
+
+    font-size: 13px;
+  }
+
+  .menuItem {
+    padding: 5px;
+    margin: 6px;
+    border: none;
+    width: 45%;
+    text-overflow: ellipsis;
+  }
+  .menuPrice {
+    padding: 5px;
+    margin: 6px;
+    border: none;
+    width: 30%;
+  }
+
+  #button-addon2 {
+    padding: 5px;
+    width: 45px;
+    font-size: 14px;
+  }
+
+  .sellpageFormDiv .col-sm-2 {
+    width: 22%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-3 {
+    width: 33%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-4 {
+    width: 43%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-5 {
+    width: 53%;
+    margin: 0px 2px;
+  }
+  .sellpageFormDiv .col-sm-9 {
+    width: 98%;
+    margin: 0px 2px;
+  }
 }
