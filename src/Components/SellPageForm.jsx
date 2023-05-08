@@ -51,7 +51,7 @@ const SellPageForm = (props) => {
       newData[what] = newList;
       return newData;
     });
-  }, 1000);
+  }, 600);
 
   useEffect(() => {
     setAccessToken(getAccessToken());

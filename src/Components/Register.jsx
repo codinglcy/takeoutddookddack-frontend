@@ -54,7 +54,7 @@ const Register = (props) => {
 
       return newData;
     });
-  }, 1000);
+  }, 600);
 
   useEffect(() => {
     setUserData((current) => {
