@@ -72,7 +72,7 @@
     font-size: 15px;
   }
 
-  .form-control {
+  .sellpageFormDiv .form-control {
     font-size: 14px;
   }
 
@@ -149,8 +149,8 @@
     font-size: 14px;
   }
 
-  .form-control {
-    font-size: 13px;
+  .sellpageFormDiv .form-control {
+    font-size: 12px;
   }
 
   .sellpageFormDiv .mb-3row {
@@ -191,7 +191,7 @@
   #button-addon2 {
     padding: 5px;
     width: 45px;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .sellpageFormDiv .col-sm-2 {
