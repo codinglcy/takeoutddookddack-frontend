@@ -1,11 +1,15 @@
 import "./css/PwdEmail.css";
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import axiosApi from "../Util/api";
 
 const PwdEmail = (props) => {
+  const [gotId, setGotId] = useState();
+  const [gotName, setGotName] = useState();
+  const [gotEmail, setGotEmail] = useState();
+
   const handleClose = () => {
     props.pwdEmailShowFunc(false);
   };
@@ -20,15 +24,27 @@ const PwdEmail = (props) => {
           <Form>
             <Form.Group className="mb-3" controlId="id">
               <Form.Label>ID(아이디)</Form.Label>
-              <Form.Control type="text" placeholder="Enter ID" />
+              <Form.Control
+                type="text"
+                placeholder="Enter ID"
+                onChange={(e) => setGotId(e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Name(성명)</Form.Label>
-              <Form.Control type="text" placeholder="Enter Name" />
+              <Form.Control
+                type="text"
+                placeholder="Enter Name"
+                onChange={(e) => setGotName(e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email(이메일)</Form.Label>
-              <Form.Control type="email" placeholder="Enter Email" />
+              <Form.Control
+                type="email"
+                placeholder="Enter Email"
+                onChange={(e) => setGotEmail(e.target.value)}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -41,9 +57,9 @@ const PwdEmail = (props) => {
             onClick={() => {
               axiosApi
                 .patch("/api/seller/checkpwdmail", {
-                  sellerId: document.getElementById("id").value,
-                  name: document.getElementById("name").value,
-                  email: document.getElementById("email").value,
+                  sellerId: gotId,
+                  name: gotName,
+                  email: gotEmail,
                 })
                 .then((res) => {
                   if (
@@ -56,8 +72,8 @@ const PwdEmail = (props) => {
                     if (window.confirm(res.data)) {
                       axiosApi
                         .patch("/api/seller/pwdmail", {
-                          sellerId: document.getElementById("id").value,
-                          email: document.getElementById("email").value,
+                          sellerId: gotId,
+                          email: gotEmail,
                         })
                         .then((res) => {
                           handleClose();
