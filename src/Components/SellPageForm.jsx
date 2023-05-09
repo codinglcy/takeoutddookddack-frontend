@@ -116,9 +116,8 @@ const SellPageForm = (props) => {
         <Col sm="9">
           <Form.Control
             type="text"
-            placeholder={sellerShopInfo.shopUrl}
+            defaultValue={sellerShopInfo.shopUrl}
             aria-label="Disabled input example"
-            disabled
             readOnly
           />
         </Col>
@@ -133,7 +132,11 @@ const SellPageForm = (props) => {
             <Form.Control type="text" placeholder="메뉴명" id="plusMenuItem" />
           </Col>
           <Col sm="3">
-            <Form.Control type="text" placeholder="가격" id="plusMenuPrice" />
+            <Form.Control
+              type="text"
+              placeholder="가격(숫자만)"
+              id="plusMenuPrice"
+            />
           </Col>
           <Col sm="2">
             <Button
