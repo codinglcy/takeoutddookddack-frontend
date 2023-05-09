@@ -60,7 +60,9 @@ const SellPage = (props) => {
         },
       });
       localStorage.clear();
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 300);
     }
   };
 
@@ -87,7 +89,13 @@ const SellPage = (props) => {
         </button>
         <button
           className="sellpageButtons"
-          onClick={() => navigate("/userform/edit")}
+          onClick={() => {
+            if (isOpen) {
+              alert("회원 정보 수정은 영업 종료후 가능합니다.");
+            } else {
+              navigate("/userform/edit");
+            }
+          }}
         >
           회원 정보 수정
         </button>
