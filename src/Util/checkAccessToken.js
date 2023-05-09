@@ -31,9 +31,9 @@ const getAccessToken = () => {
         })
         .catch((err) => {
           console.log("err", err);
+          window.location.href = "/";
           alert("로그인 해주세요.");
           localStorage.clear();
-          window.location.href = "/";
         });
     });
 
