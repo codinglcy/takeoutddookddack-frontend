@@ -183,7 +183,9 @@ const HeaderButton = (props) => {
                     },
                   }
                 );
-                navigate("/sellPage");
+                setTimeout(() => {
+                  navigate("/sellPage");
+                }, 300);
               } else {
                 alertFunc();
               }
@@ -238,7 +240,9 @@ const HeaderButton = (props) => {
                   axiosApi.post("/api/shop", {
                     sellerId: getData.sellerId,
                   });
-                  navigate("/");
+                  setTimeout(() => {
+                    navigate("/");
+                  }, 300);
                 }
               }}
             >
@@ -274,7 +278,9 @@ const HeaderButton = (props) => {
                     .catch((err) => {
                       console.log(err);
                     });
-                  navigate("/sellPage");
+                  setTimeout(() => {
+                    navigate("/sellPage");
+                  }, 700);
                 }
               }}
             >
