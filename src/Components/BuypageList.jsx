@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "./css/BuypageList.css";
 import SearchByAddress from "./SearchByAddress";
 import axiosApi from "../Util/api";
+import { useNavigate } from "react-router-dom";
 
 const BuypageList = () => {
   const [shopList, setShopList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosApi.get("/api/shop/all").then((res) => {
@@ -23,9 +25,8 @@ const BuypageList = () => {
       <div className="pagelistBox">
         <table className="table">
           <colgroup>
-            <col width="3.2" />
+            <col width="4" />
             <col width="1" />
-            <col width="0.8" />
           </colgroup>
           <thead>
             <tr
@@ -38,22 +39,25 @@ const BuypageList = () => {
             >
               <th>가게 위치</th>
               <th></th>
-              <th>url</th>
             </tr>
           </thead>
           <tbody className="listBody">
             {shopList &&
               shopList.map((shop) => {
                 return (
-                  <tr key={shop.id}>
+                  <tr
+                    key={shop.id}
+                    id="buypageLinkTR"
+                    onClick={() => {
+                      let sellerId = shop.shopUrl.split("/buypage/")[1];
+                      navigate(`/buypage/${sellerId}`);
+                    }}
+                  >
                     <td>
                       {shop.location &&
                         `${shop.location.address} ${shop.location.more}`}
                     </td>
                     <td>{shop.open ? "영업중" : "준비중"}</td>
-                    <td>
-                      <a href={shop.shopUrl}>{shop.shopUrl}</a>
-                    </td>
                   </tr>
                 );
               })}
