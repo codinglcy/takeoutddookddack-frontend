@@ -16,7 +16,7 @@
 
 ## 프로젝트 정보
 > @codinglcy 개인 프로젝트<br>
-> 개발 기간: (2023) 02.13 ~ 05.09
+> 개발 기간: 2023.02 ~ 2023.05
 
 <br><br>
 
@@ -37,7 +37,7 @@
 <br>
 
 ## 화면 구성
-<img width="33%" alt="가게 목록 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/6b8e42f3-507d-424c-ba4d-740c2c134c2d"> <img width="33%" alt="가게 페이지 (주문자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/3b709538-e242-4efe-9da8-067858ef48a8"> <img width="33%" alt="주문 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/bbb4591d-1442-49cd-adf2-6289369e93e5"><br><img width="33%" alt="가게 페이지 (판매자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/dabda188-6ceb-40da-8e12-6da1f113b8aa"> <img width="33%" alt="가게 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/8d3c3629-8f1f-4d6f-bc90-9b72f18e915c"> <img width="33%" alt="회원 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/062b5221-2072-4714-83d0-f5d352d05250">
+<img width="32%" alt="가게 목록 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/6b8e42f3-507d-424c-ba4d-740c2c134c2d"> <img width="32%" alt="가게 페이지 (주문자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/3b709538-e242-4efe-9da8-067858ef48a8"> <img width="32%" alt="주문 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/bbb4591d-1442-49cd-adf2-6289369e93e5"><br><img width="32%" alt="가게 페이지 (판매자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/dabda188-6ceb-40da-8e12-6da1f113b8aa"> <img width="32%" alt="가게 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/8d3c3629-8f1f-4d6f-bc90-9b72f18e915c"> <img width="32%" alt="회원 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/062b5221-2072-4714-83d0-f5d352d05250">
 
 
 <br>
