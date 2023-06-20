@@ -40,7 +40,7 @@ const HeaderButton = (props) => {
         <div className="headerBtnDiv">
           <button
             onClick={() => {
-              if (getData.orderName === "" && getData.orderTel === "") {
+              if (!getData.orderName && !getData.orderTel) {
                 alert("주문자 정보를 입력해 주세요.");
               } else if (getData.orderTel.split("-").length < 2) {
                 alert(
@@ -51,22 +51,23 @@ const HeaderButton = (props) => {
               } else {
                 if (
                   window.confirm(
-                    getData.selectMenu
-                      .map((menu, idx) => {
-                        return `${idx + 1}. ${menu.item} x ${
-                          menu.quantity
-                        }개\n`;
-                      })
-                      .join("") +
-                      "\n총 금액: " +
-                      getData.totalPrice +
-                      "\n주문자 정보 - 입금자명: " +
-                      getData.orderName +
-                      " / 전화번호 뒷자리: " +
-                      getData.orderTel.split("-")[
-                        getData.orderTel.split("-").length - 1
-                      ] +
-                      "\n주문하시겠습니까?"
+                    getData.selectMenu &&
+                      getData.selectMenu
+                        .map((menu, idx) => {
+                          return `${idx + 1}. ${menu.item} x ${
+                            menu.quantity
+                          }개\n`;
+                        })
+                        .join("") +
+                        "\n총 금액: " +
+                        getData.totalPrice +
+                        "\n주문자 정보 - 입금자명: " +
+                        getData.orderName +
+                        " / 전화번호 뒷자리: " +
+                        getData.orderTel.split("-")[
+                          getData.orderTel.split("-").length - 1
+                        ] +
+                        "\n주문하시겠습니까?"
                   )
                 ) {
                   axiosApi.post("/api/order", getData);
