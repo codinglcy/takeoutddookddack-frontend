@@ -6,10 +6,8 @@ import { useEffect, useState } from "react";
 const OrderPage = (props) => {
   const [selectMenu, setSelectMenu] = useState([]);
   const sellerId = useParams().sellerId;
-  console.log(sellerId);
 
   const selectMenuPlusFunc = (menu) => {
-    console.log(menu);
     setSelectMenu([...selectMenu, menu]);
   };
   const selectMenuFunc = (list) => {
