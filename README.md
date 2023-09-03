@@ -3,7 +3,7 @@
   
    <h3>길거리 포장마차도 일반 가게들처럼 미리 주문해두고 시간 맞춰 픽업할수 있도록 <br>
    포장마차를 위한 포장주문 앱을 제작해보았습니다.</h3>
-<h4>서비스 링크: http://ec2-15-165-21-12.ap-northeast-2.compute.amazonaws.com/
+<h4>서비스 링크: http://ec2-15-165-21-12.ap-northeast-2.compute.amazonaws.com/ <br>
   배포 종료되었습니다.</h4>
 
 <h4>프로젝트 소개 및 시연영상 링크: https://codinglcy.notion.site/4cf398e12d624469a290453e4fb5d32e</h4>
