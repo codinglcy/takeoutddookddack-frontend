@@ -37,8 +37,17 @@
 <br>
 <br>
 
-## 화면 구성
-<img width="32%" alt="가게 목록 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/6b8e42f3-507d-424c-ba4d-740c2c134c2d"> <img width="32%" alt="가게 페이지 (주문자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/3b709538-e242-4efe-9da8-067858ef48a8"> <img width="32%" alt="주문 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/bbb4591d-1442-49cd-adf2-6289369e93e5"> <img width="32%" alt="가게 페이지 (판매자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/dabda188-6ceb-40da-8e12-6da1f113b8aa"> <img width="32%" alt="가게 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/8d3c3629-8f1f-4d6f-bc90-9b72f18e915c"> <img width="32%" alt="회원 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/062b5221-2072-4714-83d0-f5d352d05250">
+## 화면 구성 & 구현 기능
+### 주문자 (주문뚝딱)
+<img width="32%" alt="가게 목록 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/6b8e42f3-507d-424c-ba4d-740c2c134c2d"> <img width="32%" alt="가게 페이지 (주문자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/3b709538-e242-4efe-9da8-067858ef48a8"> <img width="32%" alt="주문 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/bbb4591d-1442-49cd-adf2-6289369e93e5"> <img width="100%" alt="주문자(주문뚝딱) 화면 구현기능 설명" src="https://github.com/user-attachments/assets/74c59294-eb23-40d8-b769-3dbd1ff9acef"> <br>
+### 판매자 (판매뚝딱)
+<img width="32%" alt="가게 페이지 (판매자용) 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/dabda188-6ceb-40da-8e12-6da1f113b8aa"> <img width="32%" alt="가게 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/8d3c3629-8f1f-4d6f-bc90-9b72f18e915c"> <img width="32%" alt="회원 정보 폼 페이지 화면 캡쳐 이미지" src="https://github.com/codinglcy/takeoutddookddack-frontend/assets/107927270/062b5221-2072-4714-83d0-f5d352d05250"> <img width="100%" alt="판매자(판매뚝딱) 화면 구현기능 설명" src="https://github.com/user-attachments/assets/0a9949e6-b2df-4e9a-9b36-ad7f84eb4b72"> <br>
+
+
+### 모달 창 (로그인, 임시 비밀번호 발급)
+<img width="100%" alt="모달 창 (로그인, 임시 비밀번호 발급) 화면 구현기능 설명" src="https://github.com/user-attachments/assets/7a822c74-4b76-43bb-baf0-64c5d846be73">
+
+
 
 
 <br>
